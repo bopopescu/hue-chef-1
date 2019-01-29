@@ -6,7 +6,7 @@ Term project for CSCI-8980 (Topics in Mobile Computing).
 
 // TO DO
 
-### Contacts: 
+### Team Members: 
 
 > - [Ojas Narayanann](https://github.com/ojasbn)
 > - [Anick Saha](https://github.com/anicksaha)
