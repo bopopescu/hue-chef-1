@@ -11,5 +11,5 @@ Term project for CSCI-8980 (Topics in Mobile Computing).
 > - [Ojas Narayanann](https://github.com/ojasbn)
 > - [Anick Saha](https://github.com/anicksaha)
 
-Professor: [Feng Qian](https://www-users.cs.umn.edu/~fengqian/)
+Professor: <a href="https://www-users.cs.umn.edu/~fengqian/" target="_blank">Feng Qian</a>
 
