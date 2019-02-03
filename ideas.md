@@ -1,0 +1,2 @@
+- http://colormind.io/blog/extracting-colors-from-photos-and-video/
+- Idea: Color suggestion on dress outfits. 
