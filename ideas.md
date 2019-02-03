@@ -6,5 +6,12 @@ App ideas
 > - http://colormind.io/blog/extracting-colors-from-photos-and-video/
 > - Color Blindness- Shirt/Pant color combination and suggestion.
 
+##### Mesh detection. 
+
+##### Volume vs road crossing
+
+
+##### 
+
 ##### Impact on the Performance of Smartphones if the phone falls.
 > - https://www.ncbi.nlm.nih.gov/pubmed/26737103
