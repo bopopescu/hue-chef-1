@@ -8,6 +8,9 @@ App ideas
 
 ##### Mesh detection. 
 
+- https://www.apple.com/researchkit/
+- http://researchkit.org/
+
 ##### Volume vs road crossing
 
 
