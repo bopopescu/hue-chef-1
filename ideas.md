@@ -2,6 +2,7 @@
 - https://www.apple.com/researchkit/
 - http://researchkit.org/
 - https://developer.apple.com/machine-learning/
+- https://developer.apple.com/arkit/
 
 
 ##### Color suggestion on dress outfits. 
