@@ -1,6 +1,3 @@
-App ideas
-
-
 ##### AR/VR. 
 - https://www.apple.com/researchkit/
 - http://researchkit.org/
