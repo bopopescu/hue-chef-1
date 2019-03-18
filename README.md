@@ -15,18 +15,6 @@ The use cases for the problem are many-
 
 > __Future work:__ The high level approach can be further extended to the Augmented Reality world, by showing the changed scenes at real time to the user.
 
-
-</br>
-
-_The tentative timelines are as follows (high level task breakdown) -_
-
-</br>
-
-1) __February- Mid March__ - Setting up the basic client and server for the application. Training data dump. Getting the MVP up.
-2) __Second half of March - Mid April__ - Testing the application to accommodate different use cases. Hyperparameter tuning on the discriminative network to get better matches. 
-3) __April- Deadline__ - Performance analysis for different network modes(LTE,WiFi), energy computation and GPU usage optimization and hyperparameter tuning for the purpose. Final report compilation with test cases.
-
-
 ### Links and References: 
 
 - YouTube: [Here](https://www.youtube.com/watch?v=U2f0vZ5cHF4)
