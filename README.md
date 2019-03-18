@@ -17,7 +17,9 @@ The use cases for the problem are many-
 
 
 </br>
+
 _The tentative timelines are as follows (high level task breakdown) -_
+
 </br>
 
 1) __February- Mid March__ - Setting up the basic client and server for the application. Training data dump. Getting the MVP up.
