@@ -11,26 +11,19 @@ pix_val_2 = [list(elem) for elem in pix_val]
 
 #curl 'http://colormind.io/api/' --data-binary '{"input":pix_val_2,"model":"default"}'
 
-
-s0 = '[[44,43,44],[90,83,82],"N","N","N"]'
 payload1 = '{"input":[[44,43,44],[90,83,82],"N","N","N"],"model":"default"}'
-payload2 = '{"input":' + s0 + ',"model":"default"}'
 
+s0 = '[[44,43,44],[90,83,82],[90,83,81]]'
+payload2 = '{"input":' + s0 + ',"model":"default"}'
 
 s = str(pix_val_2)
 #print(type(s))
 
 payload = '{"input":' + s + ',"model":"default"}'
-
 print(type(payload))
 
-
-response = requests.post('http://colormind.io/api/',payload1.encode())
-
-foo = response.json()
-
-print(type(foo))
-
-#print(size(foo))
-
-print(foo)
+response = requests.post('http://colormind.io/api/',payload2.encode())
+responseJson = response.json()
+#print(type(responseJson))
+result = responseJson.get('result');
+print(result)
