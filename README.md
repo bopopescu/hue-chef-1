@@ -30,3 +30,4 @@ _The tentative timelines are as follows (high level task breakdown) -_
 ### Links and References: 
 
 - YouTube: [Here](https://www.youtube.com/watch?v=U2f0vZ5cHF4)
+- [Polyvore-dataset](https://github.com/xthan/polyvore-dataset)
