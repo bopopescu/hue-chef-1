@@ -2,7 +2,7 @@
 
 The problem we are solving(at least trying to) is to use ML algorithms(NN) to solve the problem of choosing harmonious color pattern (by taking advantage of pre-ranked(trained) color palettes) for an object of given color scheme/palette. 
 
-The use cases for the problem are many-
+Some of the many use cases are -
 - Ability to choose the article with matching color while buying personal accessories both online and offline. 
 - Assisting users with color blindness to effectively make choice of accessory purchase decisions based on the application.
 - Enabling users to make smart decisions by recommending them the list of colors that is essential for them based on their tagging of existing wardrobe colors.
