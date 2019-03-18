@@ -1,8 +1,3 @@
-Term project for CSCI-8980 (Topics in Mobile Computing).
-
-> [Course overview](https://www-users.cs.umn.edu/~fengqian/8980_spring19.pdf)
-
-
 ### Overview ~
 
 The problem we are solving(at least trying to) is to use ML algorithms(NN) to solve the problem of choosing harmonious color pattern (by taking advantage of pre-ranked(trained) color palettes) for an object of given color scheme/palette. 
