@@ -1,14 +1,22 @@
 from PIL import Image
 import requests
 from requests.auth import HTTPBasicAuth
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import io
+
+f_name='P2'
 
 
-image = Image.open('P1.jpg','r')
+#Load Image
+image = Image.open(''+f_name+'.jpg','r')
 #print(image.size)
 image = image.resize((100,100),Image.ANTIALIAS)
 #print(image.size)
-#image.save("P1_scaled.jpg",quality=95)
+#image.save("P2_scaled.jpg",quality=95)
 
+
+#Generate pixel
 pix_val = list(image.getdata()) 	#list of tuples
 pix_val_2 = [list(elem) for elem in pix_val]
 
@@ -17,16 +25,31 @@ pix_val_2 = [list(elem) for elem in pix_val]
 #payload1 = '{"input":[[44,43,44],[90,83,82],"N","N","N"],"model":"default"}'
 #s0 = '[[44,43,44],[90,83,82],[90,83,81]]'
 
+#Prepare payload
 s = str(pix_val_2)
-#print(s)
-
 payload = '{"input":' + s + ',"model":"default"}'
 print(type(payload))
 
+
+#Call API
 response = requests.post('http://colormind.io/api/',payload.encode())
 
+#Parse Result
 responseJson = response.json()
 print(responseJson)
-#print(type(responseJson))
+
 result = responseJson.get('result');
 print(result)
+
+
+
+#Displaying the palette
+palette = np.array(result, dtype=np.uint8)
+ind = [[0,1,2,3,4]]
+ind=np.array(ind)
+plt.imshow(palette[ind])
+
+#Saving the palette
+#io.imsave(''+f_name+'_palette.jpg',palette[ind])
+
+plt.show()
