@@ -10,8 +10,14 @@ Some of the many use cases are -
 
 > __Future work:__ The high level approach can be further extended to the Augmented Reality world, by showing the changed scenes at real time to the user.
 
+### Docs ~
+
+- [Status Report [04/02]](https://github.com/anicksaha/color-recommender/blob/master/_submissions/Project%20Status%20Report.pdf)
+
 ### Links and References ~
 
 - YouTube: [Here](https://www.youtube.com/watch?v=U2f0vZ5cHF4)
 - [Polyvore-dataset](https://github.com/xthan/polyvore-dataset)
 -https://bam-dataset.org/
+
+
