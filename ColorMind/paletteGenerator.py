@@ -5,11 +5,14 @@ from requests.auth import HTTPBasicAuth
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import io
+import glob
 
 f_name='P1'
 
 
 #Load Image
+
+
 image = Image.open(open('utils/'+f_name+'.jpg','rb'))
 #print(image.size
 image = image.resize((255,255),Image.ANTIALIAS)
@@ -54,4 +57,4 @@ print(result)
 #io.imsave(''+f_name+'_palette.jpg',palette[ind])
 
 
-plt.show()
+#	plt.show()
