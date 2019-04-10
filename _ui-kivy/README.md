@@ -1,7 +1,11 @@
-#### Steps: 
+## Finally, the UI module !!!
 
-> - **ImageGenerator.py** => Resizes all the training images to [255 x 255].
-> - **PaletteGenerator.py** => Uses ColorMind API to generate palette for the the resized images and store them in a JSON file. 
+We will be using Kivy for our UI module. 
 
+### What is Kivy? 
 
-> - **Graph
+- Kivy is an open source Python library for developing mobile apps & other multitouch application software with a natural user interface (NUI).
+- It can run on Android, iOS, Linux, OS X, and Windows. 
+- Distributed under the terms of the MIT license, Kivy is free and open source software.
+
+> Link: https://kivy.org/#home
