@@ -4,3 +4,4 @@
 > - **PaletteGenerator.py** => Uses ColorMind API to generate palette for the the resized images and store them in a JSON file. 
 
 
+> - **Graph
