@@ -16,7 +16,7 @@ images = glob.glob('utils/*.jpg')
 #Load Image
 for image in images:
 	with open(image,'rb') as file:
-		file_name=image.split('/')[1][:2]
+		file_name=image.split('/')[1].split('.')[0]
 		img=Image.open(file)
 		img=img.resize((255,255),Image.ANTIALIAS)
 		pix_val = list(img.getdata())
