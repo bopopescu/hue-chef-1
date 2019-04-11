@@ -16,5 +16,9 @@
   "Image_name2" : [[R,G,B],.....5]
   }
     
+#### Qs & Links:
 
-> - **Graph
+- Dataset Link: [Google Drive Link](https://drive.google.com/open?id=1LQkNkKC8-7SnBmD2EqzfsWd2oVBbZvx6)
+- How to run? 
+- Download the images to 
+
