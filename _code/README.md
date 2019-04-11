@@ -17,7 +17,7 @@
 - All the image files in /reduced_images/ folder will be of size [255 x 255].
 
 #### ./data/palette_data
-/
+
 - $.json corresponds to the palette information for folder $.
 - *Example*: 5.json will have palettes for images 401 to 500. 
 
