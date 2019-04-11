@@ -1,7 +1,10 @@
-#### Steps: 
+### Files:
 
-> - **ImageGenerator.py** => Resizes all the training images to [255 x 255].
-> - **PaletteGenerator.py** => Uses ColorMind API to generate palette for the the resized images and store them in a JSON file. 
+- **image_generator.py** => Resizes all the training images to [255 x 255].
+- **palette_generator.py** => Uses ColorMind API to generate palette for the the resized images and store them in a JSON file. 
+
+
+### Steps: 
 
 > - The input files are images present in the data directory that are read by ImageGenerator.py to produce a json file in the format Eg. <Image_name1>.jpg, <Image_name2>.jpg
 >- {
@@ -16,7 +19,7 @@
   "Image_name2" : [[R,G,B],.....5]
   }
     
-#### Qs & Links:
+### Questions & Links:
 
 - Dataset Link: [Google Drive Link](https://drive.google.com/open?id=1LQkNkKC8-7SnBmD2EqzfsWd2oVBbZvx6)
 - How to run? 
