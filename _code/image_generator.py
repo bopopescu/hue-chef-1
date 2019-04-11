@@ -12,15 +12,15 @@ import glob
 
 out ={}
 
-images = glob.glob('utils/P701-805/*.jpg')
+images = glob.glob('data/*.jpg')
 #Load Image
 for image in images:
 	with open(image,'rb') as file:
-		file_name=image.split('/')[2].split('.')[0]
+		file_name=image.split('/')[1].split('.')[0]
 		img=Image.open(file)
 		img=img.resize((255,255),Image.ANTIALIAS)
+		img.save('output/'+file_name+'.jpg')
 		pix_val = list(img.getdata())
 		pix_val_2 = [list(elem) for elem in pix_val]
 		out[file_name]=pix_val_2
 		
-print out
