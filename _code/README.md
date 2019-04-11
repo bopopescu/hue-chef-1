@@ -1,3 +1,15 @@
+### Folder Structure & naming: 
+
+#### ./raw_images/
+- Folder name is $, where $ is a numeric value.
+- Each folder will have 100 images. 
+- Responsibility of Folder *i* is images [(i-1) * 100 + 1, i * 100]
+
+#### ./reduced_images/ 
+
+- Structure: { exact same structure as raw_images }
+- All the image files in /reduced_images/ folder will be of size [255 x 255].
+
 ### Files:
 
 - **image_generator.py** => Resizes all the training images to [255 x 255].
