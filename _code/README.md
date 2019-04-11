@@ -3,7 +3,8 @@
 #### ./raw_images/
 - Folder name is $, where $ is a numeric value.
 - Each folder will have 100 images. 
-- Responsibility of Folder *i* is images [(i-1) * 100 + 1, i * 100]
+- Responsibility of Folder *i* is images [(i-1) * 100 + 1, i * 100].
+- *For example:* Folder 3 will be responsible for images [201 to 300].
 
 #### ./reduced_images/ 
 
