@@ -5,18 +5,19 @@
 - data_appender.sh
 - Param: starting $ or starting folder name. 
 
-#### ./raw_images/
+#### ./data/raw_images/
 - Folder name is $, where $ is a numeric value.
 - Each folder will have 100 images. 
 - Responsibility of Folder *i* is images [(i-1) * 100 + 1, i * 100].
 - *For example:* Folder 3 will be responsible for images [201 to 300].
 
-#### ./reduced_images/ 
+#### ./data/reduced_images/ 
 
 - Structure: { exact same structure as raw_images }
 - All the image files in /reduced_images/ folder will be of size [255 x 255].
 
-#### ./palette_files/
+#### ./data/palette_data
+/
 - $.json corresponds to the palette information for folder $.
 - *Example*: 5.json will have palettes for images 401 to 500. 
 
