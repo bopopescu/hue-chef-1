@@ -27,9 +27,11 @@
 - **image_generator.py** => Resizes all the training images to [255 x 255].
 ```
 python image_generator.py -i <foldername>
-
 ```
 - **palette_generator.py** => Uses ColorMind API to generate palette for the the resized images and store them in a JSON file. 
+```
+python palette_generator.py -i <foldername>
+```
 
 
 ### Steps: 
