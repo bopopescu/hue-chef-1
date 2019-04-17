@@ -7,7 +7,7 @@
 
 
 # Java
-/code/mapper-job/*.class
+*.class
 
 # Ignore Mapper-Job DATA folder.
 /code/mapper-job/data/*
