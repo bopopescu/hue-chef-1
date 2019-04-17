@@ -4,10 +4,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class ImageBFS {
+public class Utils {
 
-	public static void main(String[] args) throws IOException {
-        BufferedImage bi = ImageIO.read(new File("./P1.jpg"));
+	public static void ImageBFS(String filePath) throws IOException {
+        BufferedImage bi = ImageIO.read(new File(filePath));
         
         int h = bi.getHeight();
         int w = bi.getWidth();
