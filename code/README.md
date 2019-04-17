@@ -1,4 +1,8 @@
+### Flow: 
 
+- Data => Refer [here](https://github.com/anicksaha/color-recommender/tree/master/code/data).
+- Mapper => Refer [here](https://github.com/anicksaha/color-recommender/tree/master/code/mapper-job).
+- Reducer => Refer [here](https://github.com/anicksaha/color-recommender/tree/master/code/reducer-job).
     
 ### Questions & Links:
 
