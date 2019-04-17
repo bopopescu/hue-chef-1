@@ -13,7 +13,7 @@ Some of the many use cases are -
 ### Modules ~
 
 - [Code](https://github.com/anicksaha/color-recommender/tree/master/code)
-- [System Overview & Design]()
+- [System Overview & Design](https://github.com/anicksaha/color-recommender/tree/master/others)
 - [iOS App](https://github.com/anicksaha/color-recommender/tree/master/front-end-iOS)
 
 ### Docs ~
