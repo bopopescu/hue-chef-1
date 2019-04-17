@@ -9,5 +9,5 @@
 # Java
 .class
 
-# Mapper-Job
-code/image-bfs-mapper-job/data/*
+# Ignore Mapper-Job DATA folder.
+/code/image-bfs-mapper-job/data/*
