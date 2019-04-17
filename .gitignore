@@ -8,3 +8,6 @@
 
 # Java
 .class
+
+# Mapper-Job
+code/image-bfs-mapper-job/data/*
