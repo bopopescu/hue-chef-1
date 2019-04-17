@@ -15,11 +15,11 @@ public class Main {
     // Recursive
     public static void operateOnFiles(File[] files) {
     	for (File file : files) {
-        	if (file.isDirectory()) {
-            	System.out.println("Directory: " + file.getName());
-            	operateOnFiles(file.listFiles()); 
+    		if (file.isDirectory()) {
+    			System.out.println("Directory: " + file.getName());
+    			operateOnFiles(file.listFiles()); 
         	} else {
-            	//System.out.println("File: " + file.getName());
+        		//System.out.println("File: " + file.getName());
         	}
     	}
 	}
