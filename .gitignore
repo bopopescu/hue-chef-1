@@ -10,4 +10,4 @@
 .class
 
 # Ignore Mapper-Job DATA folder.
-/code/image-bfs-mapper-job/data/*
+/code/mapper-job/data/*
