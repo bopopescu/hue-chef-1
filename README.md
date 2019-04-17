@@ -10,6 +10,12 @@ Some of the many use cases are -
 
 > __Future work:__ The high level approach can be further extended to the Augmented Reality world, by showing the changed scenes at real time to the user.
 
+### Modules ~
+
+- [Code](https://github.com/anicksaha/color-recommender/tree/master/code)
+- [System Overview & Design]()
+- [iOS App](https://github.com/anicksaha/color-recommender/tree/master/front-end-iOS)
+
 ### Docs ~
 
 - [Status Report [04/02]](https://github.com/anicksaha/color-recommender/blob/master/_submissions/Project%20Status%20Report.pdf)
