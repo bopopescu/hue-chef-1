@@ -1,0 +1,6 @@
+framework module Pods_colorreco_ui {
+  umbrella header "Pods-colorreco_ui-umbrella.h"
+
+  export *
+  module * { export * }
+}
