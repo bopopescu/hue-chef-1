@@ -74,11 +74,11 @@
 				2C8382EE226DA1CD00982DC9 /* AppDelegate.swift */,
 				2C8382F0226DA1CD00982DC9 /* HomeViewController.swift */,
 				2C838302226DB64D00982DC9 /* ImageViewController.swift */,
+				2C838300226DB43700982DC9 /* CameraViewController.swift */,
 				2C838304226DB67900982DC9 /* ColorViewController.swift */,
 				2C838306226DB68D00982DC9 /* PickerViewController.swift */,
 				2C838308226DB6AD00982DC9 /* DisplayViewController.swift */,
 				2C8382F2226DA1CD00982DC9 /* Main.storyboard */,
-				2C838300226DB43700982DC9 /* CameraViewController.swift */,
 				2C8382F5226DA1D000982DC9 /* Assets.xcassets */,
 				2C8382F7226DA1D000982DC9 /* LaunchScreen.storyboard */,
 				2C8382FA226DA1D000982DC9 /* Info.plist */,
@@ -114,6 +114,7 @@
 				2C8382E7226DA1CD00982DC9 /* Sources */,
 				2C8382E8226DA1CD00982DC9 /* Frameworks */,
 				2C8382E9226DA1CD00982DC9 /* Resources */,
+				BCDE6449EC04478CD9393BD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +172,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		BCDE6449EC04478CD9393BD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-colorreco_ui/Pods-colorreco_ui-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/iOS-Color-Picker/iOS_Color_Picker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOS_Color_Picker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-colorreco_ui/Pods-colorreco_ui-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C96BFED3A5AB236F58D36C58 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

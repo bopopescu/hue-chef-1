@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE3A2CA281CBDDA0B81F83765B312355"
-               BuildableName = "Pods_colorreco_ui.framework"
-               BlueprintName = "Pods-colorreco_ui"
+               BlueprintIdentifier = "4F8BA24618144573071EB375D642F4A6"
+               BuildableName = "iOS_Color_Picker.framework"
+               BlueprintName = "iOS-Color-Picker"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE3A2CA281CBDDA0B81F83765B312355"
-            BuildableName = "Pods_colorreco_ui.framework"
-            BlueprintName = "Pods-colorreco_ui"
+            BlueprintIdentifier = "4F8BA24618144573071EB375D642F4A6"
+            BuildableName = "iOS_Color_Picker.framework"
+            BlueprintName = "iOS-Color-Picker"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

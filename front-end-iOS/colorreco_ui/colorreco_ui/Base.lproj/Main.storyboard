@@ -103,17 +103,31 @@
                                     <action selector="backButtonPressed:" destination="f2y-5v-azV" eventType="touchUpInside" id="qIh-de-94w"/>
                                 </connections>
                             </button>
+                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duk-2w-rB1">
+                                <rect key="frame" x="70" y="192" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxP-sW-HBG">
+                                <rect key="frame" x="135" y="460" width="144" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose Color"/>
+                                <connections>
+                                    <action selector="chooseColorPressed:" destination="f2y-5v-azV" eventType="touchUpInside" id="T1E-dK-3yT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.57722163250000003" green="0.77657239690000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="HOF-pL-1Ag"/>
                     </view>
                     <connections>
+                        <outlet property="displayView" destination="duk-2w-rB1" id="5e7-Wi-6Gx"/>
                         <segue destination="lqC-52-9bz" kind="show" identifier="colorToDisplay" id="tss-zx-8fs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ke6-6J-fDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="975"/>
+            <point key="canvasLocation" x="595.6521739130435" y="975"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="Pzw-F6-4bg">
