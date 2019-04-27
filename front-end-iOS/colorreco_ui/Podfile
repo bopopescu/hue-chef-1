@@ -7,6 +7,9 @@ target 'colorreco_ui' do
 
   # Pods for colorreco_ui
   pod 'iOS-Color-Picker'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+
  # platform :ios, '9.0'
  # pod 'ColorSlider', '~> 4.4'
 

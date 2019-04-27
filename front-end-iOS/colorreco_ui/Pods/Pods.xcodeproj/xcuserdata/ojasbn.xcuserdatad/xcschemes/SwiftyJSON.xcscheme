@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4194E35F05F0837777BEFA7081EA94F9"
-               BuildableName = "Pods_colorreco_ui.framework"
-               BlueprintName = "Pods-colorreco_ui"
+               BlueprintIdentifier = "068A67242F89E2FD6FCA6CD21CA74D85"
+               BuildableName = "SwiftyJSON.framework"
+               BlueprintName = "SwiftyJSON"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4194E35F05F0837777BEFA7081EA94F9"
-            BuildableName = "Pods_colorreco_ui.framework"
-            BlueprintName = "Pods-colorreco_ui"
+            BlueprintIdentifier = "068A67242F89E2FD6FCA6CD21CA74D85"
+            BuildableName = "SwiftyJSON.framework"
+            BlueprintName = "SwiftyJSON"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
