@@ -9,12 +9,19 @@
 import UIKit
 
 class DisplayViewController: UIViewController {
+    var ipcolor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        chosenColorView.backgroundColor = ipcolor
+        
 
         // Do any additional setup after loading the view.
     }
+   
+    
+    
+    @IBOutlet weak var chosenColorView: UIView!
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

@@ -19,8 +19,8 @@ UIViewController,FCColorPickerViewControllerDelegate {
         self.ans = color
         displayView.backgroundColor = color
         dismiss(animated: true)
-        print("ans")
-        print(ans.rgb()!)
+        
+       // print(ans.rgb())
         
     }
     
@@ -43,6 +43,7 @@ UIViewController,FCColorPickerViewControllerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        displayView.backgroundColor = color
         
        
        
@@ -67,6 +68,19 @@ UIViewController,FCColorPickerViewControllerDelegate {
     }
     
     
+    @IBAction func hueChefPressed(_ sender: Any) {
+        performSegue(withIdentifier: "colorToDisplay", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DisplayViewController
+        {
+            let vc = segue.destination as? DisplayViewController
+            vc?.ipcolor = ans
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -81,7 +95,7 @@ UIViewController,FCColorPickerViewControllerDelegate {
 }
 extension UIColor {
     
-    func rgb() -> Int? {
+    func rgb() -> (red:Int, green:Int, blue:Int, alpha:Int)? {
         var fRed : CGFloat = 0
         var fGreen : CGFloat = 0
         var fBlue : CGFloat = 0
@@ -92,9 +106,7 @@ extension UIColor {
             let iBlue = Int(fBlue * 255.0)
             let iAlpha = Int(fAlpha * 255.0)
             
-            //  (Bits 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
-            let rgb = (iAlpha << 24) + (iRed << 16) + (iGreen << 8) + iBlue
-            return rgb
+            return (red:iRed, green:iGreen, blue:iBlue, alpha:iAlpha)
         } else {
             // Could not extract RGBA components:
             return nil
