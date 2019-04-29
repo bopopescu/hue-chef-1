@@ -1,0 +1,35 @@
+{
+  "components": [
+    {
+      "data": {
+        "contents_checksum": "30f7ab0505d9bc4a5fa5e23ea813c500fdc4e8cc2bd961cd39e169fa1fe27542", 
+        "source": "", 
+        "type": "tar"
+      }, 
+      "dependencies": [
+        "app-engine-python", 
+        "core"
+      ], 
+      "details": {
+        "description": "Provides the tools required to develop Java applications using gcloud.", 
+        "display_name": "gcloud app Java Extensions"
+      }, 
+      "id": "app-engine-java", 
+      "is_configuration": false, 
+      "is_hidden": false, 
+      "is_required": false, 
+      "platform": {}, 
+      "version": {
+        "build_number": 20190402182837, 
+        "version_string": "1.9.73"
+      }
+    }
+  ], 
+  "revision": 20190419150515, 
+  "schema_version": {
+    "no_update": false, 
+    "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz", 
+    "version": 3
+  }, 
+  "version": "243.0.0"
+}
