@@ -218,7 +218,7 @@
                     </view>
                     <connections>
                         <outlet property="chosenColorView" destination="kKl-LT-BLA" id="ftW-qH-y7x"/>
-                        <segue destination="e9g-E6-rNI" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="OBN-Zu-rlX"/>
+                        <segue destination="e9g-E6-rNI" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="OBN-Zu-rlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzN-qN-j5W" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,6 +17,7 @@ class DisplayViewController: UIViewController {
     let APP_URL = "https://jsonplaceholder.typicode.com/todos/1"
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         chosenColorView.backgroundColor = ipcolor
@@ -45,7 +46,7 @@ class DisplayViewController: UIViewController {
     }
     
     @IBAction func homeButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "unwindSegueToHome", sender: self)
+        performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     func getColorData(url:String , parameters:[String:String]){
