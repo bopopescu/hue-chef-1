@@ -10,8 +10,6 @@ public class ServerUtils {
   public static String GetReco(String pixel) {
 
     //String[] rgb = pixel.split("|"); 
-  
-
     //int red = Integer.parseInt(rgb[0]);
     //int green = Integer.parseInt(rgb[1]);
     //int blue = Integer.parseInt(rgb[2]);

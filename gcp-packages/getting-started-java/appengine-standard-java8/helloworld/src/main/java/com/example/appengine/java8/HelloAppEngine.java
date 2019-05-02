@@ -24,7 +24,7 @@ public class HelloAppEngine extends HttpServlet {
     String result = ServerUtils.GetReco(pixel);
 
     response.setContentType("text/plain"); 
-    response.getWriter().println(pixel + result);
+    response.getWriter().println(pixel +"#"+result);
 
     //response.getWriter().println("Hello App Engine - Standard using "
       //      + SystemProperty.version.get() + " Java "
