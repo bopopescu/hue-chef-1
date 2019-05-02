@@ -10,11 +10,16 @@ import UIKit
 
 
 class PickerViewController: UIViewController {
+   
     
 
+    @IBOutlet weak var imageView: UIImageView!
     
     
-
+    
+    @IBOutlet weak var colorView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
