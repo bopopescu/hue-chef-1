@@ -14,7 +14,9 @@ class DisplayViewController: UIViewController {
     var ipcolor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     var opcolor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     
-    let APP_URL = "https://jsonplaceholder.typicode.com/todos/1"
+    
+    
+    let APP_URL = "https://color-recommender-8980.appspot.com/GetReco?"
     
     
     
@@ -25,7 +27,16 @@ class DisplayViewController: UIViewController {
        // outputColorView2.backgroundColor = opcolor
        // outputColorView3.backgroundColor = opcolor
         
-        getColorData(url: APP_URL,parameters: ["":""])
+        var color : (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+        color = chosenColorView.backgroundColor!.rgba
+        let r = Int(round(color.red * 255))
+        let g  = Int(round(color.green * 255))
+        let b = Int(round(color.blue * 255))
+        
+        let payload : String  = "\(r)|\(g)|\(b)"
+        //print(payload)
+        
+        getColorData(url: APP_URL,pl: payload)
         
         
         
@@ -49,19 +60,34 @@ class DisplayViewController: UIViewController {
         performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
-    func getColorData(url:String , parameters:[String:String]){
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
-            response in
-            if response.result.isSuccess{
-                let colorJSON : JSON = JSON(response.result.value!)
-                print(colorJSON)
-                //Handle output
-                
-            }
-            else{
-                print("Error:\(String(describing: response.result.error))")
-            }
+    func getColorData(url:String , pl:String){
+        
+//        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
+//            response in
+//            if response.result.isSuccess{
+//                let colorJSON : JSON = JSON(response.result.value!)
+//                print(colorJSON)
+//                //Handle output
+//
+//            }
+//            else{
+//                print("Error:\(String(describing: response.result.error))")
+//            }
+//        }
+   
+       
+
+    
+     Alamofire.request("https://color-recommender-8980.appspot.com/GetReco?", method: .get, parameters: ["color":pl])
+            .responseString { response in
+                //print(response.request as Any)  // original URL request
+                //print(response.response as Any) // URL response
+                print(response.result.value as Any)   // result of response serialization
         }
+        
+//        Alamofire.request(String(api)).responseString{response in debugPrint(response.result.value)
+//            }
+    }
         
     }
     /*
@@ -74,4 +100,15 @@ class DisplayViewController: UIViewController {
      }
      */
     
+
+extension UIColor {
+    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return (red, green, blue, alpha)
+    }
 }
