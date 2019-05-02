@@ -7,17 +7,62 @@
 //
 
 import UIKit
+import Foundation
+import CoreGraphics
+import QuartzCore
+
 
 
 class ImageViewController: UIViewController {
+    var ans = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     
-    
+    @IBOutlet weak var chosenColorView: UIView!
     
     @IBOutlet weak var imgView: UIImageView!
     
     @IBOutlet weak var chooseButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = event?.allTouches?.first
+        
+        let location: CGPoint? = touch?.location(in: touch?.view)
+        let px : CGFloat = location!.x
+        let py : CGFloat = location!.y
+        
+        let color = getPixelColorAtPoint(point: location!, sourceView: imgView)
+       // print(color)
+        ans = color
+        chosenColorView.backgroundColor = ans
+        
+
+        
+    }
+    func getPixelColorAtPoint(point:CGPoint, sourceView: UIImageView) -> UIColor{
+        
+        let pixel = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context = CGContext(data: pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+        var color: UIColor? = nil
+        
+        if let context = context {
+            context.translateBy(x: -point.x, y: -point.y)
+            sourceView.layer.render(in: context)
+            
+            color = UIColor(red: CGFloat(pixel[0])/255.0,
+                            green: CGFloat(pixel[1])/255.0,
+                            blue: CGFloat(pixel[2])/255.0,
+                            alpha: CGFloat(pixel[3])/255.0)
+            
+            //pixel.deallocate(capacity: 4)
+        }
+        return color!
+    }
+  
+
     
     
     override func viewDidLoad() {
@@ -28,11 +73,24 @@ class ImageViewController: UIViewController {
         self.chooseButton.layer.cornerRadius = 5
        
 
-        // Do any additional setup after loading the view.
     }
-   
     
-
+  
+    
+    
+    @IBAction func hueChefPressed(_ sender: Any) {
+        performSegue(withIdentifier: "imageToDisplay", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DisplayViewController
+        {
+            let vc = segue.destination as? DisplayViewController
+            vc?.ipcolor = ans
+        }
+    }
+    
+    
     @IBAction func chooseButtonPressed(_ sender: Any) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -108,6 +166,8 @@ extension ImageViewController:  UIImagePickerControllerDelegate, UINavigationCon
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         imgView.image = selectedImage
+        
+      
 
 
         
@@ -120,3 +180,8 @@ extension ImageViewController:  UIImagePickerControllerDelegate, UINavigationCon
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+
+
