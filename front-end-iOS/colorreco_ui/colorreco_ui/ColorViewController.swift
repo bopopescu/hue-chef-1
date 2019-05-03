@@ -14,6 +14,11 @@ UIViewController,FCColorPickerViewControllerDelegate {
     var color = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     var ans = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
 
+    @IBOutlet weak var back: UIButton!
+    
+    @IBOutlet weak var chooseColor: UIButton!
+    
+    @IBOutlet weak var hueChef: UIButton!
     
     func colorPickerViewController(_ colorPicker: FCColorPickerViewController, didSelect color: UIColor) {
         self.ans = color

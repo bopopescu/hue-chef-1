@@ -39,6 +39,11 @@ class DisplayViewController: UIViewController {
     
     @IBOutlet weak var outputView3: UIView!
     
+    @IBOutlet weak var back: UIButton!
+    
+    @IBOutlet weak var home: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

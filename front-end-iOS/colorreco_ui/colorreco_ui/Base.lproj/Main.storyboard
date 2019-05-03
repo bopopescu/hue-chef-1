@@ -50,6 +50,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="colorMode" destination="nWw-V5-ty0" id="Jc6-v9-RVl"/>
+                        <outlet property="imageMode" destination="8bC-Xf-vdC" id="y16-qC-bHo"/>
                         <segue destination="zIo-X2-pgl" kind="show" identifier="homeToImage" id="J4x-Ls-OMG"/>
                         <segue destination="eZI-qC-gbS" kind="show" identifier="homeToCamera" id="xtL-RC-K7c"/>
                         <segue destination="f2y-5v-azV" kind="show" identifier="homeToColor" id="Ip3-1p-Mdb"/>
@@ -144,7 +146,10 @@
                         <viewLayoutGuide key="safeArea" id="HOF-pL-1Ag"/>
                     </view>
                     <connections>
+                        <outlet property="back" destination="e5h-XW-jCL" id="WCB-ta-NPa"/>
+                        <outlet property="chooseColor" destination="bxP-sW-HBG" id="aov-hK-xaX"/>
                         <outlet property="displayView" destination="duk-2w-rB1" id="5e7-Wi-6Gx"/>
+                        <outlet property="hueChef" destination="lQ1-Br-W4U" id="Ltl-z1-4bQ"/>
                         <segue destination="lqC-52-9bz" kind="show" identifier="colorToDisplay" id="tss-zx-8fs"/>
                     </connections>
                 </viewController>
@@ -272,7 +277,9 @@
                         <viewLayoutGuide key="safeArea" id="vFE-wI-36F"/>
                     </view>
                     <connections>
+                        <outlet property="back" destination="bGy-PO-WDV" id="aC3-m3-hfT"/>
                         <outlet property="chosenColorView" destination="kKl-LT-BLA" id="ftW-qH-y7x"/>
+                        <outlet property="home" destination="WHy-Hc-Jor" id="B71-ig-Qmm"/>
                         <outlet property="outputView1" destination="vV4-nR-eBs" id="nja-sU-SK7"/>
                         <outlet property="outputView2" destination="WGp-90-zq7" id="EbE-Es-9jX"/>
                         <outlet property="outputView3" destination="HcK-26-bEq" id="5T3-ne-F95"/>
@@ -368,6 +375,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XWX-sy-Tim"/>
+        <segue reference="tss-zx-8fs"/>
     </inferredMetricsTieBreakers>
 </document>

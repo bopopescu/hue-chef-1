@@ -9,14 +9,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet var imageMode: UIView!
+    
+    @IBOutlet weak var colorMode: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let image = UIImage(named: "newbackground") {
             view.backgroundColor = UIColor(patternImage: image)
         }
-        // Do any additional setup after loading the view.
-    }
+        
+}
+    
 
     @IBAction func chooseImagePressed(_ sender: Any) {
         performSegue(withIdentifier: "homeToImage", sender: self)
