@@ -41,6 +41,12 @@ class DisplayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let image = UIImage(named: "newbackground") {
+            view.backgroundColor = UIColor(patternImage: image)
+        }
+        
+        
         chosenColorView.backgroundColor = ipcolor
         
         

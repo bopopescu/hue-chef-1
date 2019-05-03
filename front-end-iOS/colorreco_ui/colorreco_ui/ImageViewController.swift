@@ -67,10 +67,14 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let image = UIImage(named: "newbackground") {
+            view.backgroundColor = UIColor(patternImage: image)
+        }
         self.imgView.layer.borderWidth = 1
         self.imgView.layer.borderColor = UIColor.lightGray.cgColor
         
         self.chooseButton.layer.cornerRadius = 5
+        
        
 
     }

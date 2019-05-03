@@ -12,6 +12,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let image = UIImage(named: "newbackground") {
+            view.backgroundColor = UIColor(patternImage: image)
+        }
         // Do any additional setup after loading the view.
     }
 
