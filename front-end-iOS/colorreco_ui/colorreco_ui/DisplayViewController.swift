@@ -9,87 +9,117 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Foundation
 
 class DisplayViewController: UIViewController {
     var ipcolor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
-    var opcolor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+    var ipcolor1 = UIColor(red: 123/255, green: 100/255, blue: 0, alpha: 1)
+    var opcolor = UIColor(red: 100/255, green: 100/255, blue: 0, alpha: 1)
+    
+    var color1 = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var color2 = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    var color3 = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    
+    
+    var op :String?
     
     
     
     let APP_URL = "https://color-recommender-8980.appspot.com/GetReco?"
     
+   
     
+    @IBOutlet weak var chosenColorView: UIView!
+   
+    
+    @IBOutlet weak var outputView1: UIView!
+    
+    @IBOutlet weak var outputView2: UIView!
+    
+    
+    @IBOutlet weak var outputView3: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         chosenColorView.backgroundColor = ipcolor
-        //outputColorView1.backgroundColor = opcolor
-       // outputColorView2.backgroundColor = opcolor
-       // outputColorView3.backgroundColor = opcolor
+        
         
         var color : (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
         color = chosenColorView.backgroundColor!.rgba
         let r = Int(round(color.red * 255))
         let g  = Int(round(color.green * 255))
         let b = Int(round(color.blue * 255))
-        
         let payload : String  = "\(r)|\(g)|\(b)"
         //print(payload)
-        
-        getColorData(url: APP_URL,pl: payload)
-        
-        
-        
-        // Do any additional setup after loading the view.
+    
+        getColor(input:payload)
+       
+}
+    
+    func getColor(input :String) {
+        getColorData(pl:input){
+            [weak self] response,error in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.op = response!
+            strongSelf.updateUI()
+         }
     }
     
     
-    
-    @IBOutlet weak var chosenColorView: UIView!
-    @IBOutlet weak var outputColorView1: UIView!
-    
-    @IBOutlet weak var outputColorView2: UIView!
-    
-    @IBOutlet weak var outputColorView3: UIView!
+    func updateUI(){
+        print("Thre\(self.op!)")
+        
+        var colorArr = self.op!.components(separatedBy: "#")
+        colorArr.remove(at : 0)
+        
+        self.color1 = UIColor( red: CGFloat((colorArr[0].components(separatedBy:"|")[0] as NSString).floatValue / 255 ),green: CGFloat((colorArr[0].components(separatedBy:"|")[1] as NSString).floatValue / 255),blue:CGFloat((colorArr[0].components(separatedBy:"|")[2] as NSString).floatValue / 255),alpha:1)
+        self.color2 = UIColor( red: CGFloat((colorArr[1].components(separatedBy:"|")[0] as NSString).floatValue / 255 ),green: CGFloat((colorArr[1].components(separatedBy:"|")[1] as NSString).floatValue / 255),blue:CGFloat((colorArr[1].components(separatedBy:"|")[2] as NSString).floatValue / 255),alpha:1)
+        self.color3 = UIColor( red: CGFloat((colorArr[2].components(separatedBy:"|")[0] as NSString).floatValue / 255 ),green: CGFloat((colorArr[2].components(separatedBy:"|")[1] as NSString).floatValue / 255),blue:CGFloat((colorArr[2].components(separatedBy:"|")[2] as NSString).floatValue / 255),alpha:1)
+        
+        
+        self.outputView1.backgroundColor = self.color1
+        self.outputView2.backgroundColor = self.color2
+        self.outputView3.backgroundColor = self.color3
+        
+   }
+
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    
     @IBAction func homeButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
-    func getColorData(url:String , pl:String){
-        
-//        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
-//            response in
-//            if response.result.isSuccess{
-//                let colorJSON : JSON = JSON(response.result.value!)
-//                print(colorJSON)
-//                //Handle output
-//
-//            }
-//            else{
-//                print("Error:\(String(describing: response.result.error))")
-//            }
-//        }
-   
-       
-
     
+    func getColorData(pl:String, completionHandler: @escaping (String?, Error?) -> ()) {
+        makeCall(pl: pl, completionHandler: completionHandler)
+    }
+        
+    func makeCall(pl: String, completionHandler: @escaping (String?, Error?) -> ()) {
+      
      Alamofire.request("https://color-recommender-8980.appspot.com/GetReco?", method: .get, parameters: ["color":pl])
-            .responseString { response in
-                //print(response.request as Any)  // original URL request
-                //print(response.response as Any) // URL response
-                print(response.result.value as Any)   // result of response serialization
+     .responseString { response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as String, nil)
+            case .failure(let error):
+                completionHandler(nil,error)
+            }
+       
         }
-        
-//        Alamofire.request(String(api)).responseString{response in debugPrint(response.result.value)
-//            }
     }
+
+ 
+}
         
-    }
+
     /*
      // MARK: - Navigation
      

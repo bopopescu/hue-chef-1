@@ -79,6 +79,7 @@ UIViewController,FCColorPickerViewControllerDelegate {
         {
             let vc = segue.destination as? DisplayViewController
             vc?.ipcolor = ans
+            
         }
     }
     

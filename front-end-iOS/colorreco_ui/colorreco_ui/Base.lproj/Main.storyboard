@@ -191,14 +191,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGy-PO-WDV">
-                                <rect key="frame" x="20" y="63" width="70" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="lqC-52-9bz" eventType="touchUpInside" id="bmm-IQ-Qde"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGU-Te-bJo">
                                 <rect key="frame" x="316" y="69" width="54" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,34 +205,53 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" label="Input View"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XGJ-rs-BNY" userLabel="Output View3">
-                                <rect key="frame" x="87" y="484" width="147" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGp-90-zq7" userLabel="Output VIew2">
-                                <rect key="frame" x="87" y="395" width="147" height="57"/>
+                                <rect key="frame" x="79" y="341" width="147" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vV4-nR-eBs" userLabel="Output View1">
-                                <rect key="frame" x="87" y="256" width="147" height="57"/>
+                                <rect key="frame" x="79" y="241" width="147" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-26-bEq" userLabel="Output View 3">
+                                <rect key="frame" x="79" y="437" width="147" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHy-Hc-Jor">
+                                <rect key="frame" x="251" y="54" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="lqC-52-9bz" eventType="touchUpInside" id="DdX-IU-oNW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGy-PO-WDV">
+                                <rect key="frame" x="16" y="48" width="70" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="lqC-52-9bz" eventType="touchUpInside" id="bmm-IQ-Qde"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="vFE-wI-36F"/>
                     </view>
                     <connections>
                         <outlet property="chosenColorView" destination="kKl-LT-BLA" id="ftW-qH-y7x"/>
+                        <outlet property="outputView1" destination="vV4-nR-eBs" id="nja-sU-SK7"/>
+                        <outlet property="outputView2" destination="WGp-90-zq7" id="EbE-Es-9jX"/>
+                        <outlet property="outputView3" destination="HcK-26-bEq" id="5T3-ne-F95"/>
                         <segue destination="e9g-E6-rNI" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="OBN-Zu-rlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzN-qN-j5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="e9g-E6-rNI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1789" y="-937"/>
+            <point key="canvasLocation" x="1788.75" y="-938.02816901408448"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="xgW-8d-oPv">
