@@ -12,6 +12,7 @@ import QuartzCore
 class HomeViewController: UIViewController {
     
     
+    @IBOutlet weak var titleView: UIImageView!
     @IBOutlet weak var imageMode: UIButton!
     @IBOutlet weak var colorMode: UIButton!
     
@@ -20,6 +21,8 @@ class HomeViewController: UIViewController {
         if let image = UIImage(named: "newbackground") {
             view.backgroundColor = UIColor(patternImage: image)
         }
+        
+    titleView.image = UIImage(named: "national_park")
         
     colorMode.layer.cornerRadius = 10
     colorMode.layer.shadowColor = UIColor.black.cgColor
