@@ -16,6 +16,11 @@ import QuartzCore
 class ImageViewController: UIViewController {
     var ans = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     
+    @IBOutlet weak var back: UIButton!
+    
+    @IBOutlet weak var choose: UIButton!
+    
+    @IBOutlet weak var hueChef: UIButton!
     @IBOutlet weak var chosenColorView: UIView!
     
     @IBOutlet weak var imgView: UIImageView!
@@ -73,7 +78,29 @@ class ImageViewController: UIViewController {
         self.imgView.layer.borderWidth = 1
         self.imgView.layer.borderColor = UIColor.lightGray.cgColor
         
-        self.chooseButton.layer.cornerRadius = 5
+        choose.layer.cornerRadius = 10
+        choose.layer.shadowColor = UIColor.black.cgColor
+        choose.layer.shadowOffset = CGSize(width: 5, height: 5)
+        choose.layer.shadowRadius = 5
+        choose.layer.shadowOpacity = 1.0
+        
+        back.layer.cornerRadius = 10
+        back.layer.shadowColor = UIColor.black.cgColor
+        back.layer.shadowOffset = CGSize(width: 5, height: 5)
+        back.layer.shadowRadius = 5
+        back.layer.shadowOpacity = 1.0
+        
+        hueChef.layer.cornerRadius = 10
+        hueChef.layer.shadowColor = UIColor.black.cgColor
+        hueChef.layer.shadowOffset = CGSize(width: 5, height: 5)
+        hueChef.layer.shadowRadius = 5
+        hueChef.layer.shadowOpacity = 1.0
+        
+        chosenColorView.layer.cornerRadius = 6
+        chosenColorView.layer.shadowColor = UIColor.black.cgColor
+        chosenColorView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        chosenColorView.layer.shadowRadius = 5
+        chosenColorView.layer.shadowOpacity = 1.0
         
        
 

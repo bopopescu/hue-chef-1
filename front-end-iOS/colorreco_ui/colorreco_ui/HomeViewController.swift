@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import QuartzCore
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet var imageMode: UIView!
     
+    @IBOutlet weak var imageMode: UIButton!
     @IBOutlet weak var colorMode: UIButton!
     
     override func viewDidLoad() {
@@ -19,6 +20,19 @@ class HomeViewController: UIViewController {
         if let image = UIImage(named: "newbackground") {
             view.backgroundColor = UIColor(patternImage: image)
         }
+        
+    colorMode.layer.cornerRadius = 10
+    colorMode.layer.shadowColor = UIColor.black.cgColor
+    colorMode.layer.shadowOffset = CGSize(width: 5, height: 5)
+    colorMode.layer.shadowRadius = 5
+    colorMode.layer.shadowOpacity = 1.0
+        
+    imageMode.layer.cornerRadius = 10
+    imageMode.layer.shadowColor = UIColor.black.cgColor
+    imageMode.layer.shadowOffset = CGSize(width: 5, height: 5)
+    imageMode.layer.shadowRadius = 5
+    imageMode.layer.shadowOpacity = 1.0
+        
         
 }
     

@@ -51,7 +51,7 @@
                     </view>
                     <connections>
                         <outlet property="colorMode" destination="nWw-V5-ty0" id="Jc6-v9-RVl"/>
-                        <outlet property="imageMode" destination="8bC-Xf-vdC" id="y16-qC-bHo"/>
+                        <outlet property="imageMode" destination="biQ-Wh-glb" id="JEy-Kg-NaG"/>
                         <segue destination="zIo-X2-pgl" kind="show" identifier="homeToImage" id="J4x-Ls-OMG"/>
                         <segue destination="eZI-qC-gbS" kind="show" identifier="homeToCamera" id="xtL-RC-K7c"/>
                         <segue destination="f2y-5v-azV" kind="show" identifier="homeToColor" id="Ip3-1p-Mdb"/>
@@ -363,8 +363,11 @@
                         <viewLayoutGuide key="safeArea" id="pjp-7e-gwx"/>
                     </view>
                     <connections>
+                        <outlet property="back" destination="DQd-ze-89N" id="Gw5-Jq-RMF"/>
+                        <outlet property="choose" destination="uJw-in-4Hb" id="NHX-G3-lR6"/>
                         <outlet property="chooseButton" destination="uJw-in-4Hb" id="cH9-js-jrO"/>
                         <outlet property="chosenColorView" destination="zlT-bl-Rc8" id="KNK-I8-3WB"/>
+                        <outlet property="hueChef" destination="zKa-0f-nrQ" id="8oO-Mo-ISm"/>
                         <outlet property="imgView" destination="g4o-mD-fmb" id="yfP-AY-r2S"/>
                         <segue destination="lqC-52-9bz" kind="show" identifier="imageToDisplay" id="XWX-sy-Tim"/>
                     </connections>
@@ -375,6 +378,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tss-zx-8fs"/>
+        <segue reference="XWX-sy-Tim"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -54,6 +54,42 @@ class DisplayViewController: UIViewController {
         
         chosenColorView.backgroundColor = ipcolor
         
+        back.layer.cornerRadius = 10
+        back.layer.shadowColor = UIColor.black.cgColor
+        back.layer.shadowOffset = CGSize(width: 5, height: 5)
+        back.layer.shadowRadius = 5
+        back.layer.shadowOpacity = 1.0
+        
+        home.layer.cornerRadius = 10
+        home.layer.shadowColor = UIColor.black.cgColor
+        home.layer.shadowOffset = CGSize(width: 5, height: 5)
+        home.layer.shadowRadius = 5
+        home.layer.shadowOpacity = 1.0
+        
+        chosenColorView.layer.cornerRadius = 6
+        chosenColorView.layer.shadowColor = UIColor.black.cgColor
+        chosenColorView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        chosenColorView.layer.shadowRadius = 5
+        chosenColorView.layer.shadowOpacity = 1.0
+        
+        outputView1.layer.cornerRadius = 6
+        outputView1.layer.shadowColor = UIColor.black.cgColor
+        outputView1.layer.shadowOffset = CGSize(width: 5, height: 5)
+        outputView1.layer.shadowRadius = 5
+        outputView1.layer.shadowOpacity = 1.0
+        
+        outputView2.layer.cornerRadius = 6
+        outputView2.layer.shadowColor = UIColor.black.cgColor
+        outputView2.layer.shadowOffset = CGSize(width: 5, height: 5)
+        outputView2.layer.shadowRadius = 5
+        outputView2.layer.shadowOpacity = 1.0
+        
+        outputView3.layer.cornerRadius = 6
+        outputView3.layer.shadowColor = UIColor.black.cgColor
+        outputView3.layer.shadowOffset = CGSize(width: 5, height: 5)
+        outputView3.layer.shadowRadius = 5
+        outputView3.layer.shadowOpacity = 1.0
+        
         
         var color : (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
         color = chosenColorView.backgroundColor!.rgba

@@ -55,6 +55,34 @@ UIViewController,FCColorPickerViewControllerDelegate {
         
         displayView.backgroundColor = color
         
+        back.layer.cornerRadius = 10
+        back.layer.shadowColor = UIColor.black.cgColor
+        back.layer.shadowOffset = CGSize(width: 5, height: 5)
+        back.layer.shadowRadius = 5
+        back.layer.shadowOpacity = 1.0
+        
+        chooseColor.layer.cornerRadius = 10
+        chooseColor.layer.shadowColor = UIColor.black.cgColor
+        chooseColor.layer.shadowOffset = CGSize(width: 5, height: 5)
+        chooseColor.layer.shadowRadius = 5
+        chooseColor.layer.shadowOpacity = 1.0
+        
+        hueChef.layer.cornerRadius = 10
+        hueChef.layer.shadowColor = UIColor.black.cgColor
+        hueChef.layer.shadowOffset = CGSize(width: 5, height: 5)
+        hueChef.layer.shadowRadius = 5
+        hueChef.layer.shadowOpacity = 1.0
+        
+        
+      
+        displayView.layer.cornerRadius = 6
+        displayView.layer.shadowColor = UIColor.black.cgColor
+        displayView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        displayView.layer.shadowRadius = 5
+        displayView.layer.shadowOpacity = 1.0
+        
+        
+        
        
        
         
