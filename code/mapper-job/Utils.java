@@ -38,7 +38,7 @@ public class Utils {
         return null;
     }
 
-	public static void ImageBFS(File file, ArrayList<ArrayList<Integer>> rgbList, Map<Pair, Integer> edgeMap) throws IOException {
+    public static void ImageBFS(File file, ArrayList<ArrayList<Integer>> rgbList, Map<Pair, Integer> edgeMap) throws IOException {
         
         //System.out.println("RGB List size: " + rgbList.size());
         //System.out.println("HERE!");
