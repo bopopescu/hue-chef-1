@@ -3,6 +3,6 @@
 
 public class Constants {
 
-	public static int DELTA = 20; // RGB +/- relaxation factor.
+	public static int DELTA = 50; // RGB +/- relaxation factor.
     public static int MIN_THRESHOLD = 30; // The threshold after which we can say that two color nodes share a boundary. 
 }

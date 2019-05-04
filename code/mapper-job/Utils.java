@@ -30,6 +30,7 @@ public class Utils {
                inRange(G, curr.get(1) - Constants.DELTA, curr.get(1) + Constants.DELTA) &&
                inRange(B, curr.get(2) - Constants.DELTA, curr.get(2) + Constants.DELTA)) {
                 
+                //System.out.println("Bucket match!");
                 return curr;
             }       
         }
@@ -39,8 +40,8 @@ public class Utils {
 
 	public static void ImageBFS(File file, ArrayList<ArrayList<Integer>> rgbList, Map<Pair, Integer> edgeMap) throws IOException {
         
-        System.out.println("RGB List size: " + rgbList.size());
-        System.out.println("HERE!");
+        //System.out.println("RGB List size: " + rgbList.size());
+        //System.out.println("HERE!");
 
         int dx[] = {1,1,1,0,0,-1,-1,-1};
         int dy[] = {1,0,-1,1,-1,1,0,-1};
@@ -51,6 +52,8 @@ public class Utils {
         int h = bi.getHeight();
         int w = bi.getWidth();
         //System.out.println(h + " " + w);
+
+        int ctr = 0;
 
         for(int x=0;x<w;x++) {
             for(int y=0;y<h;y++) {
@@ -67,9 +70,19 @@ public class Utils {
                         int pixel2 = bi.getRGB(nx, ny);
                 
                         ArrayList<Integer> X = getPaletteColor(pixel1, rgbList);
+                        
+                        /*if(X!=null) {
+                            System.out.println("HERE 2!");
+                        }*/
+
                         ArrayList<Integer> Y = getPaletteColor(pixel2, rgbList);
+                        
+                        /*if(Y!=null) {
+                            System.out.println("HERE 2!"); 
+                        }*/
 
                         if(X!=null && Y!=null) {
+                            ctr++;
                             System.out.println("HERE 2!");
 
                             Pair P = new Pair(X,Y);
@@ -86,7 +99,10 @@ public class Utils {
                 }
 
             }
-        }
+        } 
+
+        // 255 * 255 = 65025
+        System.out.println("Pixels operated on: " + ctr);
     }
 }
 
