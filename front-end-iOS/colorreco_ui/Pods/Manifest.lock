@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.8.2)
   - iOS-Color-Picker (1.2)
+  - ReachabilitySwift (4.3.1)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - iOS-Color-Picker
+  - ReachabilitySwift
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - iOS-Color-Picker
+    - ReachabilitySwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   iOS-Color-Picker: 4284a4d744a7cafe9d22d4b66eefc45342b80f1d
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 2090b707d6bf1f8bf8cb972a8228cff5a386b843
+PODFILE CHECKSUM: 81bbc302a0aeb47c750b5a74ecd1b151e78cb499
 
 COCOAPODS: 1.6.1

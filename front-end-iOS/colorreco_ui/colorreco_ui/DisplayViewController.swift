@@ -12,6 +12,16 @@ import SwiftyJSON
 import Foundation
 
 class DisplayViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
     var ipcolor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     var ipcolor1 = UIColor(red: 123/255, green: 100/255, blue: 0, alpha: 1)
     var opcolor = UIColor(red: 100/255, green: 100/255, blue: 0, alpha: 1)

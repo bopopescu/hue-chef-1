@@ -11,6 +11,18 @@ import iOS_Color_Picker
 
 class ColorViewController:
 UIViewController,FCColorPickerViewControllerDelegate {
+    let network: NetworkManager = NetworkManager.sharedInstance
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
+    
     var color = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     var ans = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
 
@@ -19,6 +31,15 @@ UIViewController,FCColorPickerViewControllerDelegate {
     @IBOutlet weak var chooseColor: UIButton!
     
     @IBOutlet weak var hueChef: UIButton!
+    
+    private func showOfflineAlert() -> Void {
+        let alertController = UIAlertController(title: "HueChef says..", message:
+            "I need internet to cook!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     func colorPickerViewController(_ colorPicker: FCColorPickerViewController, didSelect color: UIColor) {
         self.ans = color
@@ -107,7 +128,13 @@ UIViewController,FCColorPickerViewControllerDelegate {
     
     
     @IBAction func hueChefPressed(_ sender: Any) {
-        performSegue(withIdentifier: "colorToDisplay", sender: self)
+      
+        NetworkManager.isUnreachable { _ in
+            self.showOfflineAlert()
+            
+        }
+    
+       self.performSegue(withIdentifier: "colorToDisplay", sender: self)
         
     }
     

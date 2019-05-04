@@ -14,6 +14,25 @@ import QuartzCore
 
 
 class ImageViewController: UIViewController {
+     let network: NetworkManager = NetworkManager.sharedInstance
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
+    private func showOfflineAlert() -> Void {
+        let alertController = UIAlertController(title: "HueChef says..", message:
+            "I need internet to cook!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    var col = UIColor(red: 1, green: 165/255, blue: 0, alpha: 0)
     var ans = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
     
     @IBOutlet weak var back: UIButton!
@@ -72,6 +91,8 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        chosenColorView.backgroundColor = col
+        
         if let image = UIImage(named: "newbackground") {
             view.backgroundColor = UIColor(patternImage: image)
         }
@@ -110,6 +131,10 @@ class ImageViewController: UIViewController {
     
     
     @IBAction func hueChefPressed(_ sender: Any) {
+        NetworkManager.isUnreachable { _ in
+            self.showOfflineAlert()
+            
+        }
         performSegue(withIdentifier: "imageToDisplay", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
