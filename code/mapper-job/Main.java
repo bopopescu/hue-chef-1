@@ -13,19 +13,27 @@ import org.json.simple.parser.JSONParser;
 // Driver Program
 public class Main {
 
+	static HashMap<String,ArrayList<ArrayList<Integer>>> paletteMap;
+	static int count;
+
 	public static void main(String[] args) throws IOException {
 		
 		File[] paletteFiles = new File("./palette_data/").listFiles();
 		loadPaletteData(paletteFiles);
 
+
 		File[] files = new File("./data/").listFiles();
+		count =0;
 		operateOnFiles(files);
+		System.out.println(count);
 	}
 
 
 	public static void loadPaletteData(File[] files) {
 		
-		HashMap<String,ArrayList<ArrayList<Integer>>> newMap = new HashMap<>();
+		paletteMap = new HashMap<>();
+
+		int ctr = 0;
 
 		// For all the palette Json files.
 		for (File file : files) {
@@ -38,47 +46,60 @@ public class Main {
             
             	//convert Object to JSONObject
             	JSONObject jsonObject = (JSONObject)object;
-            	
-            	//System.out.println("JSONOBJECT: "+jsonObject);
-            	
+            	            	
             	for(Iterator iterator = jsonObject.keySet().iterator(); iterator.hasNext();) {
     				String key = (String) iterator.next();
-    				
-    				//System.out.println(jsonObject.get(key));
+    				ctr++;
+
+    				// System.out.println(key);
 					
 					JSONArray jsonArr = (JSONArray)jsonObject.get(key);
 	            	
-	            	ArrayList<ArrayList<Integer>> mapList = new ArrayList<>();
+	            	ArrayList<ArrayList<Integer>> rgbList = new ArrayList<>();
 	            	
 	            	for (int j = 0; j < 5; j++) {
-	            		ArrayList<Integer> innerTriplet = new ArrayList<>();
+	            		ArrayList<Integer> triplet = new ArrayList<>();
 
   						JSONArray innerJsonArr = (JSONArray)jsonArr.get(j);
-  						// System.out.println("INNER JSONARRAY: "+innerJsonArr);
-  						// ArrayList<Integer> list = new ArrayList<Integer>(); 
+
   						for (int k = 0; k < 3; k++) {
   							long elem = (Long)innerJsonArr.get(k);
-  							innerTriplet.add((int)elem);
+  							triplet.add((int)elem);
 						}
-						mapList.add(innerTriplet);
+						rgbList.add(triplet);
 					}
-					newMap.put(key, mapList);
+					paletteMap.put(key, rgbList);
             	}
 			} catch(Exception e) {
 				System.out.println("Exception while forming Palette data map." + e);
 			}
 		}
 
-		//System.out.println("MAP: "+newMap.toString());
+		//System.out.println("MAP: " + paletteMap.toString());
+		System.out.println(ctr);
 	}
 
-	public static void operateOnFiles(File[] files) {
+	public static void operateOnFiles(File[] files) throws IOException {
+		
 		for (File file : files) {
 			if (file.isDirectory()) {
 				//System.out.println("Directory: " + file.getName());
 				operateOnFiles(file.listFiles()); 
 			} else {
-				//Utils.ImageBFS(file);
+				// Operate on the file
+				ArrayList<ArrayList<Integer>> rgbList = null;
+				try{
+					rgbList = paletteMap.get(file.getName());
+				} catch(Exception e) {
+					//System.out.println(file.getName());
+				}
+
+				if(rgbList!=null) {
+					count++;
+					Utils.ImageBFS(file, rgbList);	
+				} else {
+					//System.out.println("# " + file.getName());
+				}
 				//System.out.println("File: " + file.getName());
 			}
 		}

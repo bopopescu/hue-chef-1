@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Utils {
 
-	public static void ImageBFS(File file) throws IOException {
+	public static void ImageBFS(File file, ArrayList<ArrayList<Integer>> rgbList) throws IOException {
         //BufferedImage bi = ImageIO.read(new File(filePath));
         
         BufferedImage bi = ImageIO.read(file);
