@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 // Driver Program
 public class Main {
 
-	static HashMap<String,ArrayList<ArrayList<Integer>>> paletteMap;
+	static Map<String,ArrayList<ArrayList<Integer>>> paletteMap;
 	static int count;
 
 	public static void main(String[] args) throws IOException {
@@ -37,6 +37,7 @@ public class Main {
 
 		// For all the palette Json files.
 		for (File file : files) {
+			
 			//System.out.println("File: " + file.getName());
 
 			JSONParser parser = new JSONParser();
@@ -51,7 +52,7 @@ public class Main {
     				String key = (String) iterator.next();
     				ctr++;
 
-    				// System.out.println(key);
+    				//System.out.println(key);
 					
 					JSONArray jsonArr = (JSONArray)jsonObject.get(key);
 	            	
@@ -68,7 +69,7 @@ public class Main {
 						}
 						rgbList.add(triplet);
 					}
-					paletteMap.put(key, rgbList);
+					paletteMap.put(key+".jpg", rgbList); // Key -> FileName with extension.
             	}
 			} catch(Exception e) {
 				System.out.println("Exception while forming Palette data map." + e);
@@ -80,7 +81,7 @@ public class Main {
 	}
 
 	public static void operateOnFiles(File[] files) throws IOException {
-		
+
 		for (File file : files) {
 			if (file.isDirectory()) {
 				//System.out.println("Directory: " + file.getName());
@@ -89,7 +90,8 @@ public class Main {
 				// Operate on the file
 				ArrayList<ArrayList<Integer>> rgbList = null;
 				try{
-					rgbList = paletteMap.get(file.getName());
+					rgbList = paletteMap.getOrDefault(file.getName(),null);
+					//System.out.println("###" + rgbList);
 				} catch(Exception e) {
 					//System.out.println(file.getName());
 				}
@@ -100,6 +102,7 @@ public class Main {
 				} else {
 					//System.out.println("# " + file.getName());
 				}
+
 				//System.out.println("File: " + file.getName());
 			}
 		}
