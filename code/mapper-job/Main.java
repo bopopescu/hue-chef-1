@@ -69,7 +69,7 @@ public class Main {
 						}
 						rgbList.add(triplet);
 					}
-					paletteMap.put(key+".jpg", rgbList); // Key -> FileName with extension.
+					paletteMap.put(key + ".jpg", rgbList); // Key -> FileName with extension.
             	}
 			} catch(Exception e) {
 				System.out.println("Exception while forming Palette data map." + e);
