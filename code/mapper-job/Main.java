@@ -10,10 +10,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import javafx.util.Pair; 
+
 // Driver Program
 public class Main {
 
 	static Map<String,ArrayList<ArrayList<Integer>>> paletteMap;
+	static Map<Pair, Integer> edgeMap; // [ <?> ]
 	static int count;
 
 	public static void main(String[] args) throws IOException {
@@ -24,6 +27,7 @@ public class Main {
 
 		File[] files = new File("./data/").listFiles();
 		count =0;
+		edgeMap = new HashMap<>();
 		operateOnFiles(files);
 		System.out.println(count);
 	}
@@ -77,7 +81,7 @@ public class Main {
 		}
 
 		//System.out.println("MAP: " + paletteMap.toString());
-		System.out.println(ctr);
+		//System.out.println(ctr);
 	}
 
 	public static void operateOnFiles(File[] files) throws IOException {
@@ -98,7 +102,7 @@ public class Main {
 
 				if(rgbList!=null) {
 					count++;
-					Utils.ImageBFS(file, rgbList);	
+					Utils.ImageBFS(file, rgbList, edgeMap);	
 				} else {
 					//System.out.println("# " + file.getName());
 				}
