@@ -2,6 +2,7 @@ import java.util.*;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileOutputStream;
 import java.nio.*;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ import javafx.util.Pair;
 public class Main {
 
 	static Map<String,ArrayList<ArrayList<Integer>>> paletteMap;
-	static Map<Pair, Integer> edgeMap; // [ <?> ]
+	static Map<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> edgeMap; // [ <?> ]
 	static int count;
 
 	public static void main(String[] args) throws IOException {
@@ -31,6 +32,7 @@ public class Main {
 		edgeMap = new HashMap<>();
 		operateOnFiles(files);
 		System.out.println("Operation done on " + count + " files");
+	
 	}
 
 

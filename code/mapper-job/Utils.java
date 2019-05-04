@@ -38,7 +38,7 @@ public class Utils {
         return null;
     }
 
-    public static void ImageBFS(File file, ArrayList<ArrayList<Integer>> rgbList, Map<Pair, Integer> edgeMap) throws IOException {
+    public static void ImageBFS(File file, ArrayList<ArrayList<Integer>> rgbList, Map<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> edgeMap) throws IOException {
         
         //System.out.println("RGB List size: " + rgbList.size());
         //System.out.println("HERE!");
@@ -88,8 +88,9 @@ public class Utils {
                             //System.out.println("HERE 2!");
 
                             Pair P = new Pair(X,Y);
+                            
                             if(localEdgeMap.containsKey(P)) {
-                                int count = edgeMap.get(P);
+                                int count = localEdgeMap.get(P);
                                 count++;
                                 localEdgeMap.put(P,count);
                                 //System.out.println("OK " + count);
