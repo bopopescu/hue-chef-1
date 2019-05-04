@@ -46,6 +46,8 @@ public class Utils {
         int dx[] = {1,1,1,0,0,-1,-1,-1};
         int dy[] = {1,0,-1,1,-1,1,0,-1};
 
+        Map<Pair, Integer> localEdgeMap = new HashMap<>();
+
         //BufferedImage bi = ImageIO.read(new File(filePath));    
         BufferedImage bi = ImageIO.read(file);
         
@@ -83,26 +85,55 @@ public class Utils {
 
                         if(X!=null && Y!=null) {
                             ctr++;
-                            System.out.println("HERE 2!");
+                            //System.out.println("HERE 2!");
 
                             Pair P = new Pair(X,Y);
-                            if(edgeMap.containsKey(P)) {
+                            if(localEdgeMap.containsKey(P)) {
                                 int count = edgeMap.get(P);
                                 count++;
-                                edgeMap.put(P,count);
-                                System.out.println("OK " + count);
+                                localEdgeMap.put(P,count);
+                                //System.out.println("OK " + count);
                             } else {
-                                edgeMap.put(P,1);
+                                localEdgeMap.put(P,1);
+                                //System.out.println("New!");
                             }
-                        }
-                    }
-                }
 
-            }
-        } 
+                        } // EDGE
+
+                    } // IF
+
+                } // direction
+
+            } // Y
+
+        } // X
 
         // 255 * 255 = 65025
         System.out.println("Pixels operated on: " + ctr);
+
+        // Use MIN_THRESHOLD value to put Edges from localEdgeMap to the edgeMap
+
+        // Using for-each loop 
+        for (Map.Entry mapElement : localEdgeMap.entrySet()) { 
+            
+            Pair key = (Pair)mapElement.getKey(); 
+            Integer value = (Integer)mapElement.getValue();
+
+            if(value < Constants.MIN_THRESHOLD) {
+                continue;
+            }
+
+            if(edgeMap.containsKey(key)) {
+                int count = edgeMap.get(key);
+                count+=localEdgeMap.get(key);
+                edgeMap.put(key, count);
+            } else {
+                int count = localEdgeMap.get(key);
+                edgeMap.put(key, count);
+            }
+        }
+        // [Done] ~ Updating the global edge map.
+    
     }
 }
 
