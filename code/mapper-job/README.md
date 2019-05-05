@@ -7,5 +7,5 @@
 
 #### Misc:
 
-- javac -cp .:json-simple-1.1.jar *.java -d .
-- java -cp .:json-simple-1.1.jar  Main 
+- javac -cp ".:jars/*" *.java -d .
+- java -cp ".:jars/*"  Main 
