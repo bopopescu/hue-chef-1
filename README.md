@@ -18,7 +18,7 @@ Some of the many use cases are -
 
 ### Docs ~
 
-- [Status Report [04/02]](https://github.com/anicksaha/color-recommender/blob/master/_submissions/Project%20Status%20Report.pdf)
+- [Status Report [04/02]](https://github.com/anicksaha/color-recommender/blob/master/submissions/Project%20Status%20Report.pdf)
 
 ### Links and References ~
 
