@@ -13,6 +13,10 @@ import org.json.simple.parser.JSONParser;
 
 import javafx.util.Pair; 
 
+// Gson
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 // Driver Program
 public class Main {
 
@@ -28,7 +32,7 @@ public class Main {
 
 		// Operate on all the files.
 		File[] files = new File("./data/").listFiles();
-		count =0;
+		count = 0;
 		edgeMap = new HashMap<>();
 		operateOnFiles(files);
 		System.out.println("Operation done on " + count + " files");
