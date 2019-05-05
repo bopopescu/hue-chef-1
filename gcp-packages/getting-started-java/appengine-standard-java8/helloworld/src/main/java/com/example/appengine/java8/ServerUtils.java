@@ -7,21 +7,29 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
+import java.net.*;
+import java.io.*;
+
+
 public class ServerUtils {
 
   static int DELTA = 40; // RGB +/- relaxation factor.
 
-  static HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> edgeMap = new HashMap<>();
+  static HashMap<ArrayList<Integer>, Integer> edgeMap = new HashMap<>();
 
   static {
-    // static block to load map 
-    
+
+    // Block to load map
     try {
+
+
+      URL url = new URL("https://raw.githubusercontent.com/anicksaha/color-recommender/master/code/mapper-job/Edge_Map.txt");
+      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
       String line;
 
-      FileReader fileReader = new FileReader("Edge_Map.txt");
+      //FileReader fileReader = new FileReader("Edge_Map.txt");
 
-      BufferedReader bufferedReader = new BufferedReader(fileReader);
+      //BufferedReader bufferedReader = new BufferedReader(fileReader);
 
       while((line = bufferedReader.readLine()) != null) {
           
@@ -35,18 +43,15 @@ public class ServerUtils {
           intArray[i] = Integer.parseInt(strArray[i]);
         }
 
-        ArrayList<Integer> X = new ArrayList<>( Arrays.asList(intArray[0], intArray[1], intArray[2]));
-        ArrayList<Integer> Y = new ArrayList<>( Arrays.asList(intArray[3], intArray[4], intArray[5]));    
+        ArrayList<Integer> key = new ArrayList<>( Arrays.asList(intArray[0], intArray[1], intArray[2], intArray[3], intArray[4], intArray[5]));
         int count = intArray[6];
 
-        Pair P = new Pair(X,Y);
-
-        if(edgeMap.containsKey(P)) {
-          int oldCount = edgeMap.get(P);
+        if(edgeMap.containsKey(key)) {
+          int oldCount = edgeMap.get(key);
           count+=oldCount;
-          edgeMap.put(P, count);
+          edgeMap.put(key, count);
         } else {
-          edgeMap.put(P, count);
+          edgeMap.put(key, count);
         }
    
       }
@@ -59,6 +64,8 @@ public class ServerUtils {
     }
 
   }
+
+
 
 
   static boolean inRange(int val, int L, int R) {
@@ -96,14 +103,22 @@ public class ServerUtils {
     
     
     for(Map.Entry mapElement : edgeMap.entrySet()) { 
-      Pair pair = (Pair)mapElement.getKey();
-      ArrayList<Integer> X = (ArrayList<Integer>)pair.getKey();
-      ArrayList<Integer> Y = (ArrayList<Integer>)pair.getValue(); 
+
+      ArrayList<Integer> key = (ArrayList)mapElement.getKey();
+      
       Integer value = (Integer)mapElement.getValue();
 
+      ArrayList<Integer> X = new ArrayList<>( Arrays.asList(key.get(0), key.get(1), key.get(2)));
+      ArrayList<Integer> Y = new ArrayList<>( Arrays.asList(key.get(3), key.get(4), key.get(5)));
+      
       if(isPaletteMatch(R,G,B,X) && value>=ans_max_count) {
         ans_max_count = value;
-        ansRGB = X;
+        ansRGB = (ArrayList) X.clone();;
+      }
+
+      if(isPaletteMatch(R,G,B,Y) && value>=ans_max_count) {
+        ans_max_count = value;
+        ansRGB = (ArrayList) Y.clone();;
       }
     }
 
