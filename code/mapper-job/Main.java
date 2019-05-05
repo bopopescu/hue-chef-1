@@ -77,7 +77,7 @@ public class Main {
         
         /*
         // Deserialize test 
-		HashMap<String,ArrayList<ArrayList<Integer>>> cloneMap = new HashMap<>();
+		HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> cloneMap = new HashMap<>();
 
         try {
 

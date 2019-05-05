@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 
 public class ServerUtils {
 
+  static int DELTA = 40; // RGB +/- relaxation factor.
+
   static HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> edgeMap = new HashMap<>();
 
   static {
@@ -59,24 +61,75 @@ public class ServerUtils {
   }
 
 
-  public static String GetReco(String pixel) {
+  static boolean inRange(int val, int L, int R) {
+    if(val>=L && val<=R) {
+      return true;
+    }
+    return false;
+  }
 
-    //String[] rgb = pixel.split("|"); 
-    //int red = Integer.parseInt(rgb[0]);
-    //int green = Integer.parseInt(rgb[1]);
-    //int blue = Integer.parseInt(rgb[2]);
+  static boolean isPaletteMatch(int R, int G, int B, ArrayList<Integer> palette) {
+
+    if(inRange(R, palette.get(0) - DELTA, palette.get(0) + DELTA) &&
+       inRange(G, palette.get(1) - DELTA, palette.get(1) + DELTA) &&
+       inRange(B, palette.get(2) - DELTA, palette.get(2) + DELTA)) {
+         
+      return true;
+    }       
+    return false;
+  }
+
+
+  public static String GetReco(String pixel) {
+    
+    ArrayList<Integer> ansRGB  = null;
+    int ans_max_count = 0;
+
+    try {
+    
+    String[] rgb = pixel.split("\\|");
+    int R = Integer.parseInt(rgb[0]);
+    int G = Integer.parseInt(rgb[1]);
+    int B = Integer.parseInt(rgb[2]);
     
     // do job
+    
+    
+    for(Map.Entry mapElement : edgeMap.entrySet()) { 
+      Pair pair = (Pair)mapElement.getKey();
+      ArrayList<Integer> X = (ArrayList<Integer>)pair.getKey();
+      ArrayList<Integer> Y = (ArrayList<Integer>)pair.getValue(); 
+      Integer value = (Integer)mapElement.getValue();
 
+      if(isPaletteMatch(R,G,B,X) && value>=ans_max_count) {
+        ans_max_count = value;
+        ansRGB = X;
+      }
+    }
+
+    } catch(Exception e) {
+
+    }
 
     // stubbing for now.
-    
     String color1 = "255|128|20";
     String color2 = "255|128|20";
     String color3 = "255|128|20";
 
+    
+    if(ansRGB!=null) {
+      color1 = "";
+      for(int i=0;i<3;i++) {
+        color1+=Integer.toString(ansRGB.get(i));
+        if(i!=2) color1+="|";
+      }
+    }
+    
+    
     String ans = color1 + "#" + color2 + "#" + color3;
     System.out.println(ans);
     return ans;
   }
+
 }
+
