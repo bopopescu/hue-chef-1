@@ -16,12 +16,15 @@ import javafx.util.Pair;
 // Gson
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import com.google.gson.JsonSyntaxException;
+
 
 // Driver Program
 public class Main {
 
-	static Map<String,ArrayList<ArrayList<Integer>>> paletteMap;
-	static Map<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> edgeMap; // [ <?> ]
+	static HashMap<String,ArrayList<ArrayList<Integer>>> paletteMap;
+	static HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> edgeMap; // [ <?> ]
 	static int count;
 
 	public static void main(String[] args) throws IOException {
@@ -36,6 +39,23 @@ public class Main {
 		edgeMap = new HashMap<>();
 		operateOnFiles(files);
 		System.out.println("Operation done on " + count + " files");
+
+
+		// Serialize 
+		
+		Gson gson = new Gson();
+        String jsonString = gson.toJson(edgeMap);
+         
+        Type type = new TypeToken< HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> >(){}.getType();
+        HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> clonedMap;
+
+        try {
+        	clonedMap = gson.fromJson(jsonString, type);
+        } catch (IllegalStateException | JsonSyntaxException exception) {
+        	System.out.println("Exception in gson.fromJson ");
+		}
+
+        //System.out.println(jsonString);
 	
 	}
 
