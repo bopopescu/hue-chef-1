@@ -44,18 +44,19 @@ public class Main {
 		// Serialize 
 		
 		Gson gson = new Gson();
-        String jsonString = gson.toJson(edgeMap);
-         
-        Type type = new TypeToken< HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> >(){}.getType();
-        HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> clonedMap;
+		String jsonString = gson.toJson(edgeMap);
 
-        try {
-        	clonedMap = gson.fromJson(jsonString, type);
-        } catch (IllegalStateException | JsonSyntaxException exception) {
-        	System.out.println("Exception in gson.fromJson ");
+		Type type = new TypeToken< HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> >(){}.getType();
+		HashMap<Pair<ArrayList<Integer>, ArrayList<Integer>>, Integer> clonedMap;
+
+		try {
+			clonedMap = gson.fromJson(jsonString, type);
+		} catch (IllegalStateException | JsonSyntaxException e) {
+			//System.out.println("Exception in gson.fromJson");
+			//e.printStackTrace(System.out);
 		}
 
-        //System.out.println(jsonString);
+		//System.out.println(jsonString);
 	
 	}
 
