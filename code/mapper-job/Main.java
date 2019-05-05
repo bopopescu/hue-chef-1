@@ -36,7 +36,7 @@ public class Main {
 		loadPaletteData(paletteFiles);
 
 		// Operate on all the files.
-		File[] files = new File("./data-test/").listFiles();
+		File[] files = new File("./data/").listFiles();
 		count = 0;
 		edgeMap = new HashMap<>();
 		operateOnFiles(files);
