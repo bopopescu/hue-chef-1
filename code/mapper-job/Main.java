@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.nio.*;
 
 import java.io.IOException;
@@ -34,15 +35,46 @@ public class Main {
 		loadPaletteData(paletteFiles);
 
 		// Operate on all the files.
-		File[] files = new File("./data-test/").listFiles();
+		File[] files = new File("./data/").listFiles();
 		count = 0;
 		edgeMap = new HashMap<>();
 		operateOnFiles(files);
 		System.out.println("Operation done on " + count + " files");
 
+		// Dump in a file 
+		PrintWriter writer = new PrintWriter("Edge_Map.txt", "UTF-8");
+	
+		for (Map.Entry mapElement : edgeMap.entrySet()) { 
+            
+            Pair pair = (Pair)mapElement.getKey(); 
+
+            //System.out.println(pair.getKey());
+            
+            ArrayList<Integer> X = (ArrayList<Integer>)pair.getKey();
+            ArrayList<Integer> Y = (ArrayList<Integer>)pair.getValue();
+            Integer value = (Integer)mapElement.getValue();
+
+            String output = "";
+            
+            for(int i=0;i<3;i++) {
+            	output+=Integer.toString(X.get(i));
+            	output+=Constants.DELIM;
+            }
+
+            for(int i=0;i<3;i++) {
+            	output+=Integer.toString(Y.get(i));
+            	output+=Constants.DELIM;
+            }
+
+            output+=Integer.toString(value);
+
+            writer.println(output);
+        }
+
+        writer.close();
 
 		// Serialize 
-		
+		/*
 		Gson gson = new Gson();
 		String jsonString = gson.toJson(edgeMap);
 
@@ -57,7 +89,7 @@ public class Main {
 		}
 
 		//System.out.println(jsonString);
-	
+		*/
 	}
 
 
