@@ -13,7 +13,7 @@ import java.io.*;
 
 public class ServerUtils {
 
-  static int DELTA = 40; // RGB +/- relaxation factor.
+  static int DELTA = 15; // RGB +/- relaxation factor.
 
   static HashMap<ArrayList<Integer>, Integer> edgeMap = new HashMap<>();
 
@@ -77,7 +77,7 @@ public class ServerUtils {
 
   static Integer getPaletteMatchScore(int R, int G, int B, ArrayList<Integer> palette) {
 
-    Integer score = 0;
+    Integer score = -1;
 
     if(inRange(R, palette.get(0) - DELTA, palette.get(0) + DELTA) &&
        inRange(G, palette.get(1) - DELTA, palette.get(1) + DELTA) &&
@@ -105,7 +105,6 @@ public class ServerUtils {
     
     // do job
     
-    
     for(Map.Entry mapElement : edgeMap.entrySet()) { 
 
       ArrayList<Integer> key = (ArrayList)mapElement.getKey();
@@ -118,6 +117,7 @@ public class ServerUtils {
       Integer score_x = getPaletteMatchScore(R,G,B,X);
       Integer score_y = getPaletteMatchScore(R,G,B,Y);
 
+      
       // when both edge nodes fits in the query 
       if(score_x>=0 && score_y>=0 && value>=ans_max_count) {
         ans_max_count = value;
@@ -135,6 +135,8 @@ public class ServerUtils {
       } else {
         // default case
       }
+      
+
 
     }
 
@@ -142,10 +144,10 @@ public class ServerUtils {
 
     }
 
-    // stubbing for now.
-    String color1 = "255|128|20";
-    String color2 = "255|128|20";
-    String color3 = "255|128|20";
+    // stub | default values.
+    String color1 = "173|255|47";
+    String color2 = "173|255|47";
+    String color3 = "173|255|47";
 
     
     if(ansRGB!=null) {
