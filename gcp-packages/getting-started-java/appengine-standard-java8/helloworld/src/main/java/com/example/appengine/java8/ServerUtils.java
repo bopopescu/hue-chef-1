@@ -1,6 +1,6 @@
 package com.example.appengine.java8;
 
-import javafx.util.Pair; 
+import java.lang.Math; 
 import java.util.*;
 
 import java.io.File;
@@ -75,15 +75,19 @@ public class ServerUtils {
     return false;
   }
 
-  static boolean isPaletteMatch(int R, int G, int B, ArrayList<Integer> palette) {
+  static Integer getPaletteMatchScore(int R, int G, int B, ArrayList<Integer> palette) {
+
+    Integer score = 0;
 
     if(inRange(R, palette.get(0) - DELTA, palette.get(0) + DELTA) &&
        inRange(G, palette.get(1) - DELTA, palette.get(1) + DELTA) &&
        inRange(B, palette.get(2) - DELTA, palette.get(2) + DELTA)) {
-         
-      return true;
+
+       score = Math.abs(R-palette.get(0)) +
+               Math.abs(G-palette.get(1)) +
+               Math.abs(B-palette.get(2));
     }       
-    return false;
+    return score;
   }
 
 
@@ -111,15 +115,27 @@ public class ServerUtils {
       ArrayList<Integer> X = new ArrayList<>( Arrays.asList(key.get(0), key.get(1), key.get(2)));
       ArrayList<Integer> Y = new ArrayList<>( Arrays.asList(key.get(3), key.get(4), key.get(5)));
       
-      if(isPaletteMatch(R,G,B,X) && value>=ans_max_count) {
+      Integer score_x = getPaletteMatchScore(R,G,B,X);
+      Integer score_y = getPaletteMatchScore(R,G,B,Y);
+
+      // when both edge nodes fits in the query 
+      if(score_x>=0 && score_y>=0 && value>=ans_max_count) {
         ans_max_count = value;
-        ansRGB = (ArrayList) X.clone();;
+        if(score_x > score_y) {
+          ansRGB = (ArrayList) X.clone();
+        } else {
+          ansRGB = (ArrayList) Y.clone();          
+        }
+      } else if(score_x>=0 && value>=ans_max_count) {
+        ans_max_count = value;
+        ansRGB = (ArrayList) Y.clone();
+      } else if(score_y>=0 && value>=ans_max_count) {
+        ans_max_count = value;
+        ansRGB = (ArrayList) X.clone();
+      } else {
+        // default case
       }
 
-      if(isPaletteMatch(R,G,B,Y) && value>=ans_max_count) {
-        ans_max_count = value;
-        ansRGB = (ArrayList) Y.clone();;
-      }
     }
 
     } catch(Exception e) {
