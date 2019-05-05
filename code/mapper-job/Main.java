@@ -2,6 +2,7 @@ import java.util.*;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.nio.*;
@@ -35,7 +36,7 @@ public class Main {
 		loadPaletteData(paletteFiles);
 
 		// Operate on all the files.
-		File[] files = new File("./data/").listFiles();
+		File[] files = new File("./data-test/").listFiles();
 		count = 0;
 		edgeMap = new HashMap<>();
 		operateOnFiles(files);
@@ -72,6 +73,51 @@ public class Main {
         }
 
         writer.close();
+
+        
+        /*
+        // Deserialize test 
+		HashMap<String,ArrayList<ArrayList<Integer>>> cloneMap = new HashMap<>();
+
+        try {
+
+        	String line;
+
+            FileReader fileReader = new FileReader("Edge_Map.txt");
+            
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null) {
+                
+                //System.out.println(line);
+
+                String[] strArray = line.split("\\|");
+
+				int[] intArray = new int[strArray.length];
+				
+				for(int i = 0; i < strArray.length; i++) {
+					//System.out.print(strArray[i] + " ");
+					intArray[i] = Integer.parseInt(strArray[i]);
+				}
+
+				ArrayList<Integer> X = new ArrayList<>( Arrays.asList(intArray[0], intArray[1], intArray[2]));
+				ArrayList<Integer> Y = new ArrayList<>( Arrays.asList(intArray[3], intArray[4], intArray[5])); 		
+				int count = intArray[6];
+
+				System.out.println(X.get(0) + " " + X.get(1) + " " + X.get(2) + " " + 
+					               Y.get(0) + " " + Y.get(1) + " " + Y.get(2) + " " + 
+					               count + " $");
+
+            }   
+
+            bufferedReader.close();         
+        }
+        catch(Exception e) {
+            System.out.println("Exception in reading file."); 
+            e.printStackTrace(System.out);     
+        }
+        */
+
 
 		// Serialize 
 		/*
