@@ -49,10 +49,19 @@ public class Utils {
         Map<Pair, Integer> localEdgeMap = new HashMap<>();
 
         //BufferedImage bi = ImageIO.read(new File(filePath));    
-        BufferedImage bi = ImageIO.read(file);
+        BufferedImage bi = null;
+        int h = 0;
+        int w = 0;
+        try {
+            bi = ImageIO.read(file);
+            h = bi.getHeight();
+            w = bi.getWidth();
+        } catch(Exception e) {
+            System.out.println(file);
+            return;
+        }
+
         
-        int h = bi.getHeight();
-        int w = bi.getWidth();
         //System.out.println(h + " " + w);
 
         int ctr = 0;
@@ -125,7 +134,7 @@ public class Utils {
             Pair key = (Pair)mapElement.getKey(); 
             Integer value = (Integer)mapElement.getValue();
 
-            if(value < Constants.MIN_THRESHOLD) {
+            if(value > Constants.MAX_THRESHOLD) {
                 continue;
             }
 
