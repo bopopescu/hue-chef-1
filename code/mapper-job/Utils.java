@@ -84,6 +84,11 @@ public class Utils {
                         }*/
 
                         if(X!=null && Y!=null) {
+
+                            if(X.equals(Y)) {
+                                continue;
+                            }
+
                             ctr++;
                             //System.out.println("HERE 2!");
 
@@ -126,11 +131,12 @@ public class Utils {
 
             if(edgeMap.containsKey(key)) {
                 int count = edgeMap.get(key);
-                count+=localEdgeMap.get(key);
+                count+=1;
+                //localEdgeMap.get(key);
                 edgeMap.put(key, count);
             } else {
-                int count = localEdgeMap.get(key);
-                edgeMap.put(key, count);
+                //int count = localEdgeMap.get(key);
+                edgeMap.put(key, 1);
             }
         }
         // [Done] ~ Updating the global edge map.
