@@ -13,7 +13,7 @@ import java.io.*;
 
 public class ServerUtils {
 
-  static int DELTA = 15; // RGB +/- relaxation factor.
+  static int DELTA = 30; // RGB +/- relaxation factor.
 
   static HashMap<ArrayList<Integer>, Integer> edgeMap = new HashMap<>();
 
@@ -93,8 +93,15 @@ public class ServerUtils {
 
   public static String GetReco(String pixel) {
     
-    ArrayList<Integer> ansRGB  = null;
-    int ans_max_count = 0;
+    ArrayList<Integer> ansRGB_1  = null;
+    int ans_max_count_1 = 0;
+
+    ArrayList<Integer> ansRGB_2  = null;
+    int ans_max_count_2 = 0;
+
+    ArrayList<Integer> ansRGB_3  = null;
+    int ans_max_count_3 = 0;
+
 
     try {
     
@@ -119,19 +126,92 @@ public class ServerUtils {
 
       
       // when both edge nodes fits in the query 
-      if(score_x>=0 && score_y>=0 && value>=ans_max_count) {
-        ans_max_count = value;
-        if(score_x > score_y) {
-          ansRGB = (ArrayList) X.clone();
-        } else {
-          ansRGB = (ArrayList) Y.clone();          
+      if(score_x>=0 && score_y>=0) {
+        if(value>=ans_max_count_1) {
+
+          ans_max_count_3 = ans_max_count_2;
+          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          
+          ans_max_count_2 = ans_max_count_1;
+          ansRGB_2 = (ArrayList) ansRGB_1.clone();    
+          
+          ans_max_count_1 = value;
+        
+          if(score_x > score_y) {
+            ansRGB_1 = (ArrayList) X.clone();
+          } else {
+            ansRGB_1 = (ArrayList) Y.clone();          
+          }  
+        } else if(value>=ans_max_count_2) {
+          ans_max_count_3 = ans_max_count_2;
+          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+
+          ans_max_count_2 = value;
+        
+          if(score_x > score_y) {
+            ansRGB_2 = (ArrayList) X.clone();
+          } else {
+            ansRGB_2 = (ArrayList) Y.clone();          
+          }  
+        } else if(value>=ans_max_count_3) {
+          ans_max_count_3 = value;
+        
+          if(score_x > score_y) {
+            ansRGB_3 = (ArrayList) X.clone();
+          } else {
+            ansRGB_3 = (ArrayList) Y.clone();          
+          }
         }
-      } else if(score_x>=0 && value>=ans_max_count) {
-        ans_max_count = value;
-        ansRGB = (ArrayList) Y.clone();
-      } else if(score_y>=0 && value>=ans_max_count) {
-        ans_max_count = value;
-        ansRGB = (ArrayList) X.clone();
+        
+
+      } else if(score_x>=0) {
+
+        if(value>=ans_max_count_1) {
+          ans_max_count_3 = ans_max_count_2;
+          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          
+          ans_max_count_2 = ans_max_count_1;
+          ansRGB_2 = (ArrayList) ansRGB_1.clone();    
+          
+          ans_max_count_1 = value;
+          ansRGB_1 = (ArrayList) Y.clone(); 
+
+        } else if(value>=ans_max_count_2) {
+          ans_max_count_3 = ans_max_count_2;
+          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+
+          ans_max_count_2 = value;
+          ansRGB_2 = (ArrayList) Y.clone(); 
+
+        } else if(value>=ans_max_count_3) {
+          ans_max_count_3 = value;
+          ansRGB_3 = (ArrayList) Y.clone(); 
+        }
+
+      } else if(score_y>=0) {
+        
+        if(value>=ans_max_count_1) {
+          ans_max_count_3 = ans_max_count_2;
+          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          
+          ans_max_count_2 = ans_max_count_1;
+          ansRGB_2 = (ArrayList) ansRGB_1.clone();    
+          
+          ans_max_count_1 = value;
+          ansRGB_1 = (ArrayList) X.clone(); 
+
+        } else if(value>=ans_max_count_2) {
+          ans_max_count_3 = ans_max_count_2;
+          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+
+          ans_max_count_2 = value;
+          ansRGB_2 = (ArrayList) X.clone(); 
+
+        } else if(value>=ans_max_count_3) {
+          ans_max_count_3 = value;
+          ansRGB_3 = (ArrayList) X.clone(); 
+        }
+
       } else {
         // default case
       }
@@ -150,14 +230,29 @@ public class ServerUtils {
     String color3 = "173|255|47";
 
     
-    if(ansRGB!=null) {
+    if(ansRGB_1!=null) {
       color1 = "";
       for(int i=0;i<3;i++) {
-        color1+=Integer.toString(ansRGB.get(i));
+        color1+=Integer.toString(ansRGB_1.get(i));
         if(i!=2) color1+="|";
       }
     }
     
+    if(ansRGB_2!=null) {
+      color2 = "";
+      for(int i=0;i<3;i++) {
+        color2+=Integer.toString(ansRGB_2.get(i));
+        if(i!=2) color2+="|";
+      }
+    }
+
+    if(ansRGB_3!=null) {
+      color3 = "";
+      for(int i=0;i<3;i++) {
+        color3+=Integer.toString(ansRGB_3.get(i));
+        if(i!=2) color3+="|";
+      }
+    }
     
     String ans = color1 + "#" + color2 + "#" + color3;
     System.out.println(ans);
