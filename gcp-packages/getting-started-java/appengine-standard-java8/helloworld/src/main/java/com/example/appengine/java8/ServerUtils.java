@@ -129,12 +129,16 @@ public class ServerUtils {
       if(score_x>=0 && score_y>=0) {
         if(value>=ans_max_count_1) {
 
-          ans_max_count_3 = ans_max_count_2;
-          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          if(ansRGB_2!=null) {
+            ans_max_count_3 = ans_max_count_2;
+            ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          }
           
-          ans_max_count_2 = ans_max_count_1;
-          ansRGB_2 = (ArrayList) ansRGB_1.clone();    
-          
+          if(ansRGB_1!=null) {
+            ans_max_count_2 = ans_max_count_1;
+            ansRGB_2 = (ArrayList) ansRGB_1.clone();    
+          }
+
           ans_max_count_1 = value;
         
           if(score_x > score_y) {
@@ -143,8 +147,11 @@ public class ServerUtils {
             ansRGB_1 = (ArrayList) Y.clone();          
           }  
         } else if(value>=ans_max_count_2) {
-          ans_max_count_3 = ans_max_count_2;
-          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          
+          if(ansRGB_2!=null) {
+            ans_max_count_3 = ans_max_count_2;
+            ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          }
 
           ans_max_count_2 = value;
         
@@ -167,18 +174,26 @@ public class ServerUtils {
       } else if(score_x>=0) {
 
         if(value>=ans_max_count_1) {
-          ans_max_count_3 = ans_max_count_2;
-          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+
+          if(ansRGB_2!=null) {
+            ans_max_count_3 = ans_max_count_2;
+            ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          }
           
-          ans_max_count_2 = ans_max_count_1;
-          ansRGB_2 = (ArrayList) ansRGB_1.clone();    
+          if(ansRGB_1!=null) {
+            ans_max_count_2 = ans_max_count_1;
+            ansRGB_2 = (ArrayList) ansRGB_1.clone();  
+          }  
           
           ans_max_count_1 = value;
           ansRGB_1 = (ArrayList) Y.clone(); 
 
         } else if(value>=ans_max_count_2) {
-          ans_max_count_3 = ans_max_count_2;
-          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+
+          if(ansRGB_2!=null) {
+            ans_max_count_3 = ans_max_count_2;
+            ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          }
 
           ans_max_count_2 = value;
           ansRGB_2 = (ArrayList) Y.clone(); 
@@ -191,19 +206,26 @@ public class ServerUtils {
       } else if(score_y>=0) {
         
         if(value>=ans_max_count_1) {
-          ans_max_count_3 = ans_max_count_2;
-          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
-          
-          ans_max_count_2 = ans_max_count_1;
-          ansRGB_2 = (ArrayList) ansRGB_1.clone();    
-          
+
+          if(ansRGB_2!=null) {
+            ans_max_count_3 = ans_max_count_2;
+            ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          }
+
+          if(ansRGB_1!=null) {
+            ans_max_count_2 = ans_max_count_1;
+            ansRGB_2 = (ArrayList) ansRGB_1.clone();    
+          }
           ans_max_count_1 = value;
           ansRGB_1 = (ArrayList) X.clone(); 
 
         } else if(value>=ans_max_count_2) {
-          ans_max_count_3 = ans_max_count_2;
-          ansRGB_3 = (ArrayList) ansRGB_2.clone();  
-
+          
+          if(ansRGB_2!=null) {
+            ans_max_count_3 = ans_max_count_2;
+            ansRGB_3 = (ArrayList) ansRGB_2.clone();  
+          }
+          
           ans_max_count_2 = value;
           ansRGB_2 = (ArrayList) X.clone(); 
 
