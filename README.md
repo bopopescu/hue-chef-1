@@ -13,7 +13,7 @@ Trying to solve the problem of choosing harmonious color combinations using mach
 
 ### Links and References
 
-- [Colour Palette Build Challenge | The Sims 4](https://www.youtube.com/watch?v=U2f0vZ5cHF4)
+- [Colour Palette Build Challenge](https://www.youtube.com/watch?v=U2f0vZ5cHF4)
 - [Polyvore-dataset](https://github.com/xthan/polyvore-dataset)
 - [The Behance Artistic Dataset](https://bam-dataset.org/)
 
