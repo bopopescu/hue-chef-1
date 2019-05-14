@@ -2,6 +2,9 @@
 
 Trying to solve the problem of choosing harmonious color combinations using machine learning and a _frequentist approach_.
 
+- [Frequentist inference](https://en.wikipedia.org/wiki/Frequentist_inference)
+- [Bayesian and frequentist reasoning in plain English](https://stats.stackexchange.com/questions/22/bayesian-and-frequentist-reasoning-in-plain-english)
+
 ### Modules
 
 - [Code](https://github.com/anicksaha/color-recommender/tree/master/code)
