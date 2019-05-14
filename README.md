@@ -12,7 +12,7 @@ Trying to solve the problem of choosing harmonious color combinations using _GAN
 
 ### Docs:
 
-- [Status Report [04/02]](https://github.com/anicksaha/color-recommender/blob/master/submissions/Project%20Status%20Report.pdf)
+- [Final Report]()
 
 ### Links and References:
 
