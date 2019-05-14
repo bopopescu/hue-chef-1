@@ -1,6 +1,6 @@
 ### Overview
 
-Trying to solve the problem of choosing harmonious color combinations using machine learning and a frequentist approach.
+Trying to solve the problem of choosing harmonious color combinations using machine learning and a _frequentist approach_.
 
 ### Modules
 
