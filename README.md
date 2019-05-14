@@ -1,6 +1,6 @@
 ### Overview:
 
-Trying to solve the problem of choosing harmonious color combinations using machine learning and a _frequentist approach_.
+Trying to solve the problem of choosing harmonious color combinations using _GAN_ and a _frequentist approach_.
 
 - [Frequentist Inference](https://en.wikipedia.org/wiki/Frequentist_inference)
 - [Bayesian and frequentist reasoning in plain English](https://stats.stackexchange.com/questions/22/bayesian-and-frequentist-reasoning-in-plain-english)
